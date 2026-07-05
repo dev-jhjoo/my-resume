@@ -1,0 +1,3 @@
+- [User Profile](user_profile.md) — 주지훈, 9년차 백엔드 엔지니어, 결제/커머스/항공/메시징 도메인, FDE 포지션 준비 중
+- [FDE Repositioning Project](project_fde_repositioning.md) — my-resume(index.html 단일 파일) FDE 리포지셔닝 진행 상황과 남은 갭
+- [Feedback: Analyze Before Edit](feedback_analysis_before_edit.md) — 이력서 수정은 분석/합의 먼저, Edit은 나중에

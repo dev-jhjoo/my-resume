@@ -583,7 +583,6 @@
                 <li>고객사 Agent 개선: 메시지 타입별 DB → Queue 독립 파이프라인과 우선순위 큐 도입, SQL limit 기반 TPS 제어를 Bucket4j Rate Limiter로 교체, Socket 통신을 Netty 비동기 이벤트 드리븐 방식으로 전환</li>
                 <li>Windows Server EOS 대응 이관: MySQL binlog 비활성화 환경을 고려한 마이그레이션 절차 수립, 제한된 네트워크 대역폭에서 약 60만 개 MMS 첨부파일을 전용 Client/Server 애플리케이션으로 안정적으로 이전</li>
               </ul>
-              <div class="case-result">Emergency Backoffice: 운영 서버 장애 직후 운영팀과 직접 소통해 실제 필요한 최소 업무(회원 조회·메시지 발송 현황 확인)를 확인하고, 정상 DB만 참조하는 읽기 전용 백오피스를 30분 내 구현해 서버 복구 기간 동안 핵심 운영 업무의 연속성을 확보.</div>
             </article>
           </section>
 
