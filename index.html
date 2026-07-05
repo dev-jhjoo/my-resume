@@ -1,66 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>주지훈 · 백엔드 엔지니어 이력서</title>
+    <title>주지훈 | Backend Engineer · FDE / Internal Tools Focus</title>
     <meta
       name="description"
-      content="대용량 시스템과 외부 연동, 팀 리딩을 두루 경험한 9년 차 백엔드 엔지니어 주지훈의 이력서·경력기술서."
+      content="현업의 병목을 정의하고 데이터·자동화·AI로 바로 쓰이는 도구를 만드는 9년 차 백엔드 엔지니어 주지훈의 이력서와 경력기술서."
     />
-
-    <!-- 폰트: Noto Sans KR 단일 (가독성·로딩 단순화) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
     />
-
     <style>
-      /* ============ 토큰 ============ */
       :root {
         --bg: #ffffff;
-        --surface: #fbfbfa;
-        --surface-2: #f4f4f2;
-        --ink: #1b1b1d;
-        --ink-soft: #46474c;
-        --muted: #8b8c92;
-        --border: #eaeae5;
-        --border-strong: #dcdcd5;
-        --accent: #3a5a78;
-        --accent-ink: #33536f;
-        --accent-soft: rgba(58, 90, 120, 0.09);
-        --maxw: 820px;
+        --surface: #fbfcfd;
+        --surface-strong: #f2f5f8;
+        --ink: #17212b;
+        --ink-soft: #4c5b68;
+        --muted: #778592;
+        --border: #e4e9ee;
+        --accent: #1e5a82;
+        --accent-soft: #e8f2f8;
+        --accent-ink: #124567;
+        --good: #12634d;
+        --maxw: 920px;
         --font: "Noto Sans KR", -apple-system, BlinkMacSystemFont, system-ui,
           "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
       }
+
       [data-theme="dark"] {
-        --bg: #16171b;
-        --surface: #1c1d22;
-        --surface-2: #23252b;
-        --ink: #ececee;
-        --ink-soft: #b6b7bd;
-        --muted: #7e7f87;
-        --border: #2a2c32;
-        --border-strong: #363840;
-        --accent: #8dabcb;
-        --accent-ink: #9cb7d4;
-        --accent-soft: rgba(141, 171, 203, 0.13);
+        --bg: #10151b;
+        --surface: #171f28;
+        --surface-strong: #202b36;
+        --ink: #edf3f7;
+        --ink-soft: #c0ccd5;
+        --muted: #8f9ca7;
+        --border: #2c3945;
+        --accent: #85c6f0;
+        --accent-soft: #17354a;
+        --accent-ink: #a5d5f4;
+        --good: #7ed5b3;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         background: var(--bg);
@@ -68,1401 +55,524 @@
         font-family: var(--font);
         font-size: 16px;
         line-height: 1.7;
-        letter-spacing: -0.003em;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        transition: background 0.3s ease, color 0.3s ease;
+        letter-spacing: -0.012em;
       }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      strong {
-        font-weight: 600;
-      }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+      strong { font-weight: 700; }
 
-      /* ============ 상단 바 ============ */
       .topbar {
         position: sticky;
         top: 0;
-        z-index: 50;
-        background: color-mix(in srgb, var(--bg) 86%, transparent);
-        backdrop-filter: saturate(140%) blur(10px);
+        z-index: 20;
         border-bottom: 1px solid var(--border);
+        background: color-mix(in srgb, var(--bg) 90%, transparent);
+        backdrop-filter: blur(12px);
+      }
+      .topbar__inner,
+      .wrap {
+        width: min(var(--maxw), calc(100% - 40px));
+        margin: 0 auto;
       }
       .topbar__inner {
-        max-width: var(--maxw);
-        margin: 0 auto;
-        padding: 11px 28px;
+        min-height: 62px;
         display: flex;
         align-items: center;
         gap: 14px;
       }
       .brand {
-        font-weight: 700;
         font-size: 15px;
-        letter-spacing: -0.02em;
-        flex: 0 0 auto;
+        font-weight: 800;
+        white-space: nowrap;
       }
       .brand span {
+        margin-left: 6px;
         color: var(--muted);
         font-weight: 500;
-        font-size: 13px;
-        margin-left: 7px;
+        font-size: 12px;
       }
-
-      .seg {
-        display: inline-flex;
+      .tabs {
         margin: 0 auto;
-        background: var(--surface-2);
+        display: inline-flex;
+        gap: 4px;
+        padding: 4px;
         border: 1px solid var(--border);
-        border-radius: 9px;
-        padding: 3px;
-        gap: 2px;
+        border-radius: 10px;
+        background: var(--surface);
       }
-      .seg__btn {
+      .tab {
         border: 0;
+        border-radius: 7px;
         background: transparent;
         color: var(--ink-soft);
-        font-family: var(--font);
-        font-size: 13.5px;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        padding: 6px 16px;
-        border-radius: 7px;
+        padding: 6px 13px;
         cursor: pointer;
-        transition: 0.16s;
-        white-space: nowrap;
+        font-size: 13px;
+        font-weight: 700;
       }
-      .seg__btn:hover {
-        color: var(--ink);
-      }
-      .seg__btn.is-active {
+      .tab.is-active {
         background: var(--bg);
         color: var(--ink);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 1px 3px rgba(15, 30, 45, .11);
       }
-
-      .tools {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        flex: 0 0 auto;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        height: 35px;
-        padding: 0 13px;
+      .tools { display: flex; gap: 8px; }
+      .icon-btn {
+        border: 1px solid var(--border);
         border-radius: 8px;
-        border: 1px solid var(--border-strong);
         background: var(--surface);
-        color: var(--ink);
-        font-family: var(--font);
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.16s;
-        white-space: nowrap;
-      }
-      .btn:hover {
-        border-color: var(--accent);
-        color: var(--accent-ink);
-      }
-      .btn svg {
-        width: 15px;
-        height: 15px;
-        flex: 0 0 auto;
-      }
-      .btn--icon {
-        padding: 0;
-        width: 35px;
-        justify-content: center;
-      }
-
-      /* ============ 레이아웃 ============ */
-      .wrap {
-        max-width: var(--maxw);
-        margin: 0 auto;
-        padding: 0 28px;
-      }
-      section {
-        padding: 42px 0;
-      }
-      .sec-head {
-        display: flex;
-        align-items: baseline;
-        gap: 9px;
-        padding-bottom: 11px;
-        margin-bottom: 24px;
-        border-bottom: 1px solid var(--border);
-      }
-      .sec-head h2 {
-        margin: 0;
-        font-size: 14.5px;
-        font-weight: 700;
-        letter-spacing: 0.01em;
-      }
-      .sec-head .en {
-        font-size: 11.5px;
-        color: var(--muted);
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-      .sec-head .note {
-        margin-left: auto;
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      /* ============ 히어로 ============ */
-      .hero {
-        padding: 52px 0 40px;
-      }
-      .hero__role {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--accent-ink);
-        letter-spacing: 0.02em;
-        margin-bottom: 14px;
-      }
-      .hero h1 {
-        margin: 0;
-        font-weight: 800;
-        letter-spacing: -0.035em;
-        line-height: 1.06;
-        font-size: clamp(38px, 7vw, 58px);
-      }
-      .hero h1 .en {
-        display: block;
-        font-weight: 500;
-        font-size: clamp(14px, 2.4vw, 17px);
-        letter-spacing: 0.01em;
-        color: var(--muted);
-        margin-top: 12px;
-      }
-      .hero__tagline {
-        font-size: clamp(16px, 2.4vw, 20px);
-        font-weight: 600;
-        letter-spacing: -0.02em;
-        margin: 24px 0 0;
-        max-width: 34ch;
-        line-height: 1.45;
-      }
-      .hero__lead {
         color: var(--ink-soft);
-        max-width: 56ch;
-        margin: 13px 0 0;
-        font-size: 15.5px;
+        padding: 7px 10px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 700;
       }
-      .contacts {
+      .icon-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+      .hero { padding: 62px 0 40px; }
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--accent-ink);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: .035em;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(42px, 7vw, 62px);
+        line-height: 1.05;
+        letter-spacing: -.045em;
+      }
+      h1 span {
+        display: block;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: .01em;
+      }
+      .tagline {
+        max-width: 720px;
+        margin: 26px 0 0;
+        font-size: clamp(19px, 3vw, 25px);
+        line-height: 1.42;
+        font-weight: 800;
+        letter-spacing: -.03em;
+      }
+      .lead {
+        max-width: 720px;
+        margin: 14px 0 0;
+        color: var(--ink-soft);
+        font-size: 16px;
+      }
+      .contact-row,
+      .link-row,
+      .chip-row {
         display: flex;
         flex-wrap: wrap;
+        gap: 8px;
         align-items: center;
-        gap: 8px 14px;
-        margin-top: 24px;
-        font-size: 14px;
+      }
+      .contact-row { margin-top: 24px; color: var(--ink-soft); font-size: 14px; }
+      .contact-row a:hover { color: var(--accent-ink); }
+      .dot { color: var(--border); }
+      .chip-row { margin-top: 20px; }
+      .chip {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 5px 10px;
+        background: var(--surface);
         color: var(--ink-soft);
-      }
-      .contacts a {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .contacts a:hover {
-        color: var(--accent-ink);
-      }
-      .contacts .dot {
-        color: var(--border-strong);
-      }
-      .contacts svg {
-        width: 14px;
-        height: 14px;
-        opacity: 0.7;
+        font-size: 12px;
+        font-weight: 700;
       }
 
-      /* 메트릭(차분한 통계 행) */
       .stats {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        margin-top: 34px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: var(--surface);
         overflow: hidden;
-      }
-      .stat {
-        padding: 16px 18px;
-        border-left: 1px solid var(--border);
-      }
-      .stat:first-child {
-        border-left: 0;
-      }
-      .stat__v {
-        font-size: 21px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--ink);
-      }
-      .stat__v small {
-        font-size: 12.5px;
-        color: var(--muted);
-        font-weight: 500;
-        margin-left: 2px;
-      }
-      .stat__k {
-        font-size: 12px;
-        color: var(--muted);
-        margin-top: 2px;
-      }
-
-      /* ============ 뷰 전환 ============ */
-      .view {
-        display: none;
-      }
-      .view.is-active {
-        display: block;
-      }
-      .cv-lead {
-        padding: 40px 0 0;
-      }
-      .cv-lead h2 {
-        margin: 0;
-        font-size: clamp(22px, 4vw, 28px);
-        font-weight: 800;
-        letter-spacing: -0.03em;
-      }
-      .cv-lead p {
-        margin: 10px 0 0;
-        color: var(--ink-soft);
-        max-width: 60ch;
-        font-size: 15px;
-      }
-
-      /* ============ 소개 ============ */
-      .pillars {
-        display: grid;
-        gap: 14px;
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .pillar h3 {
-        margin: 0 0 7px;
-        font-size: 15px;
-        font-weight: 700;
-        letter-spacing: -0.01em;
-        line-height: 1.4;
-      }
-      .pillar p {
-        margin: 0;
-        font-size: 14px;
-        color: var(--ink-soft);
-        line-height: 1.65;
-      }
-
-      /* ============ 기술 ============ */
-      .skills {
-        display: grid;
-        gap: 0;
-      }
-      .skillrow {
-        display: grid;
-        grid-template-columns: 150px 1fr;
-        gap: 18px;
-        align-items: start;
-        padding: 12px 0;
-        border-top: 1px solid var(--border);
-      }
-      .skillrow:first-child {
-        border-top: 0;
-      }
-      .skillrow__k {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--muted);
-        padding-top: 3px;
-      }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 7px;
-      }
-      .tag {
-        font-size: 13px;
-        font-weight: 500;
-        padding: 4px 11px;
-        border-radius: 7px;
-        background: var(--surface-2);
+        margin: 34px 0 0;
         border: 1px solid var(--border);
-        color: var(--ink-soft);
-        white-space: nowrap;
+        border-radius: 14px;
+        background: var(--surface);
       }
-      .tag--core {
-        color: var(--ink);
-        font-weight: 600;
-        border-color: var(--border-strong);
-      }
+      .stat { padding: 16px 18px; border-left: 1px solid var(--border); }
+      .stat:first-child { border-left: 0; }
+      .stat__v { font-size: 23px; font-weight: 800; letter-spacing: -.03em; }
+      .stat__k { margin-top: 2px; color: var(--muted); font-size: 12px; }
 
-      /* ============ 경력 ============ */
-      .jobs {
-        display: grid;
-        gap: 0;
-      }
-      .job {
-        padding: 22px 0;
-        border-top: 1px solid var(--border);
-      }
-      .job:first-child {
-        border-top: 0;
-      }
-      .job__head {
+      .view { display: none; }
+      .view.is-active { display: block; }
+      section { padding: 38px 0; }
+      .section-head {
         display: flex;
-        justify-content: space-between;
         align-items: baseline;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .job__co {
-        font-size: 17px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-      .job__co .kind {
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--muted);
-        margin-left: 8px;
-        letter-spacing: 0;
-      }
-      .job__date {
-        font-size: 13px;
-        color: var(--muted);
-        white-space: nowrap;
-      }
-      .job__date .now {
-        color: var(--accent-ink);
-        font-weight: 600;
-      }
-      .job__role {
-        font-size: 13.5px;
-        font-weight: 600;
-        color: var(--accent-ink);
-        margin: 4px 0 0;
-      }
-      .job__list {
-        margin: 12px 0 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 6px;
-      }
-      .job__list li {
-        position: relative;
-        padding-left: 15px;
-        font-size: 14.5px;
-        color: var(--ink-soft);
-        line-height: 1.62;
-      }
-      .job__list li::before {
-        content: "";
-        position: absolute;
-        left: 1px;
-        top: 9px;
-        width: 5px;
-        height: 1.5px;
-        background: var(--muted);
-      }
-      .job__stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: 13px;
-      }
-      .job__stack .tag {
-        font-size: 12px;
-        padding: 3px 9px;
-      }
-
-      /* ============ 교육 / 자격 ============ */
-      .twocol {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 42px;
-      }
-      .subhead {
-        margin: 0 0 4px;
-        font-size: 12.5px;
-        font-weight: 600;
-        color: var(--muted);
-      }
-      .deflist {
-        display: grid;
-        gap: 0;
-      }
-      .defrow {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 14px;
-        align-items: baseline;
-        padding: 12px 0;
-        border-top: 1px solid var(--border);
-      }
-      .defrow:first-child {
-        border-top: 0;
-      }
-      .defrow__t {
-        font-weight: 600;
-        font-size: 14.5px;
-      }
-      .defrow__s {
-        font-size: 12.5px;
-        color: var(--muted);
-        margin-top: 1px;
-      }
-      .defrow__d {
-        font-size: 12.5px;
-        color: var(--ink-soft);
-        white-space: nowrap;
-      }
-
-      /* ============ 푸터 ============ */
-      .foot {
-        border-top: 1px solid var(--border);
-        padding: 26px 0 54px;
-        color: var(--muted);
-        font-size: 12.5px;
-      }
-      .foot__inner {
-        max-width: var(--maxw);
-        margin: 0 auto;
-        padding: 0 28px;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
         gap: 10px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
       }
-      .foot a:hover {
+      .section-head h2 { margin: 0; font-size: 18px; letter-spacing: -.02em; }
+      .section-head span { color: var(--muted); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+      .section-note { margin-left: auto; color: var(--muted); font-size: 12px; }
+
+      .pillars,
+      .case-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .pillar,
+      .case,
+      .skill-panel {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+      }
+      .pillar { padding: 18px; }
+      .pillar h3 { margin: 0 0 8px; font-size: 15px; line-height: 1.42; }
+      .pillar p { margin: 0; color: var(--ink-soft); font-size: 13.5px; }
+
+      .case-grid { grid-template-columns: repeat(2, 1fr); }
+      .case { padding: 21px; }
+      .case__meta {
         color: var(--accent-ink);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .02em;
       }
+      .case h3 { margin: 8px 0 10px; font-size: 20px; line-height: 1.35; letter-spacing: -.025em; }
+      .case > p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+      .case-list { margin: 16px 0; padding: 0; list-style: none; }
+      .case-list li {
+        position: relative;
+        margin-top: 8px;
+        padding-left: 14px;
+        color: var(--ink-soft);
+        font-size: 13.5px;
+      }
+      .case-list li::before { content: ""; position: absolute; left: 0; top: .72em; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+      .case-result {
+        margin-top: 16px;
+        padding: 12px 13px;
+        border-radius: 10px;
+        background: var(--accent-soft);
+        color: var(--accent-ink);
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .text-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--accent-ink);
+        font-size: 13px;
+        font-weight: 800;
+      }
+      .text-link:hover { text-decoration: underline; }
 
-      /* ============ 반응형 ============ */
-      @media (max-width: 760px) {
-        .brand span {
-          display: none;
-        }
-        .stats {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .stat:nth-child(odd) {
-          border-left: 0;
-        }
-        .stat:nth-child(n + 3) {
-          border-top: 1px solid var(--border);
-        }
-        .pillars {
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
-        .skillrow {
-          grid-template-columns: 1fr;
-          gap: 7px;
-        }
-        .twocol {
-          grid-template-columns: 1fr;
-          gap: 32px;
-        }
-      }
-      @media (max-width: 520px) {
-        .pdf-label {
-          display: none;
-        }
-        .btn--accent-pdf {
-          padding: 0;
-          width: 35px;
-          justify-content: center;
-        }
-        .seg__btn {
-          padding: 6px 12px;
-        }
-        .topbar__inner,
-        .wrap,
-        .foot__inner {
-          padding-left: 18px;
-          padding-right: 18px;
-        }
-      }
+      .job { padding: 25px 0; border-top: 1px solid var(--border); }
+      .job:first-child { border-top: 0; padding-top: 0; }
+      .job__head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+      .job__co { font-size: 18px; font-weight: 800; letter-spacing: -.02em; }
+      .job__kind { margin-left: 8px; color: var(--muted); font-size: 13px; font-weight: 500; }
+      .job__date { flex: 0 0 auto; color: var(--muted); font-size: 13px; }
+      .job__role { margin: 5px 0 14px; color: var(--accent-ink); font-size: 14px; font-weight: 700; }
+      .job ul { margin: 0; padding-left: 18px; }
+      .job li { margin-top: 8px; color: var(--ink-soft); font-size: 14px; }
+      .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+      .tag { border-radius: 999px; padding: 4px 9px; background: var(--surface-strong); color: var(--ink-soft); font-size: 11.5px; font-weight: 700; }
 
-      /* ============ 인쇄 / PDF (활성 탭만) ============ */
+      .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      .skill-panel { padding: 18px; }
+      .skill-panel h3 { margin: 0 0 8px; font-size: 14px; }
+      .skill-panel p { margin: 0; color: var(--ink-soft); font-size: 13.5px; }
+      .skill-panel .tags { margin-top: 12px; }
+
+      .cv-intro { padding: 42px 0 5px; }
+      .cv-intro h2 { margin: 0; font-size: 29px; letter-spacing: -.04em; }
+      .cv-intro p { max-width: 690px; margin: 10px 0 0; color: var(--ink-soft); }
+      .story {
+        margin-top: 20px;
+        padding: 21px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+      }
+      .story h3 { margin: 0; font-size: 18px; }
+      .story__label { display: block; margin-top: 17px; color: var(--accent-ink); font-size: 12px; font-weight: 800; letter-spacing: .04em; }
+      .story p { margin: 4px 0 0; color: var(--ink-soft); font-size: 14px; }
+      .story__result { margin-top: 16px; color: var(--good); font-size: 14px; font-weight: 800; }
+      .footer { padding: 36px 0 42px; color: var(--muted); font-size: 12px; text-align: center; }
+
+      @media (max-width: 720px) {
+        .topbar__inner { min-height: 56px; }
+        .brand span, .pdf-label { display: none; }
+        .tabs { margin-left: auto; margin-right: 0; }
+        .tools { display: none; }
+        .stats { grid-template-columns: repeat(2, 1fr); }
+        .stat:nth-child(3) { border-left: 0; border-top: 1px solid var(--border); }
+        .stat:nth-child(4) { border-top: 1px solid var(--border); }
+        .pillars, .case-grid, .skills-layout { grid-template-columns: 1fr; }
+        .job__head { display: block; }
+        .job__date { margin-top: 4px; }
+        .job__kind { display: block; margin: 4px 0 0; }
+      }
       @media print {
-        :root,
-        [data-theme="dark"] {
-          --bg: #fff;
-          --surface: #fff;
-          --surface-2: #fff;
-          --ink: #1a1a1c;
-          --ink-soft: #3a3b40;
-          --muted: #6d6e75;
-          --border: #e0e0db;
-          --border-strong: #cdcdc6;
-          --accent: #33536f;
-          --accent-ink: #33536f;
-          --accent-soft: #eef2f5;
-        }
-        html {
-          font-size: 11.4px;
-        }
-        body {
-          background: #fff;
-        }
-        .topbar,
-        .tools,
-        .foot {
-          display: none !important;
-        }
-        .view:not(.is-active) {
-          display: none !important;
-        }
-        .hero {
-          padding: 4mm 0 3mm;
-        }
-        .cv-lead {
-          padding: 3mm 0 0;
-        }
-        section {
-          padding: 6mm 0;
-        }
-        .wrap {
-          max-width: none;
-          padding: 0;
-        }
-        .stats,
-        .job,
-        .pillar {
-          break-inside: avoid;
-        }
-        .sec-head {
-          break-after: avoid;
-        }
-        a {
-          color: var(--ink) !important;
-        }
-        * {
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
-        }
-        @page {
-          size: A4;
-          margin: 14mm 15mm;
-        }
+        :root { --bg: #fff; --surface: #fff; --surface-strong: #f7f7f7; --ink: #111; --ink-soft: #333; --muted: #666; --border: #ddd; --accent-ink: #174b6f; --accent-soft: #f1f7fb; }
+        body { font-size: 12px; }
+        .topbar, .tools, .tabs { display: none !important; }
+        .view { display: block !important; }
+        .view + .view { page-break-before: always; }
+        section { padding: 22px 0; }
+        .hero { padding-top: 28px; }
+        .case, .pillar, .skill-panel, .story { break-inside: avoid; }
+        .wrap { width: 100%; }
       }
     </style>
   </head>
   <body>
-    <!-- 상단 바 -->
     <header class="topbar">
       <div class="topbar__inner">
-        <a class="brand" href="#top">주지훈<span>Backend Engineer</span></a>
-        <div class="seg" role="tablist" aria-label="문서 전환">
-          <button
-            class="seg__btn is-active"
-            id="tab-resume"
-            data-view="resume"
-            role="tab"
-            aria-selected="true"
-          >
-            이력서
-          </button>
-          <button
-            class="seg__btn"
-            id="tab-cv"
-            data-view="cv"
-            role="tab"
-            aria-selected="false"
-          >
-            경력기술서
-          </button>
+        <a class="brand" href="#top">주지훈 <span>Backend Engineer</span></a>
+        <div class="tabs" role="tablist" aria-label="문서 보기 전환">
+          <button class="tab is-active" type="button" data-view="resume" role="tab" aria-selected="true">이력서</button>
+          <button class="tab" type="button" data-view="cv" role="tab" aria-selected="false">경력기술서</button>
         </div>
         <div class="tools">
-          <button
-            class="btn btn--icon"
-            id="themeBtn"
-            type="button"
-            aria-label="다크모드 전환"
-            title="라이트/다크 전환"
-          >
-            <svg
-              id="themeIcon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></svg>
-          </button>
-          <button
-            class="btn btn--accent-pdf"
-            id="pdfBtn"
-            type="button"
-            title="현재 문서를 PDF로 저장"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 3v12" />
-              <path d="m7 11 5 5 5-5" />
-              <path d="M5 21h14" />
-            </svg>
-            <span class="pdf-label">PDF 저장</span>
-          </button>
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="테마 전환">테마</button>
+          <button class="icon-btn" id="pdfBtn" type="button">PDF 저장</button>
         </div>
       </div>
     </header>
 
-    <a id="top"></a>
+    <main id="top">
+      <div class="wrap">
+        <section class="hero">
+          <p class="eyebrow">Senior Backend Engineer · FDE / Internal Tools Focus · 9년 차</p>
+          <h1>주지훈<span>Jeehoon JOO</span></h1>
+          <p class="tagline">현업의 병목을 찾아, <strong>데이터·자동화·AI로 바로 쓰이는 도구</strong>를 만드는 엔지니어</p>
+          <p class="lead">결제·커머스·항공·메시징 도메인에서 대용량 처리와 외부 연동 시스템을 설계·운영해 왔습니다. 최근에는 장애 상황에서 업무 연속성을 확보하는 긴급 운영 도구와, 데이터 수집부터 AI 분석·알림까지 연결한 자동화 서비스를 직접 구축하며 문제 정의부터 배포·운영까지의 실행력을 확장하고 있습니다.</p>
+          <div class="contact-row">
+            <span>경기 고양시 덕양구</span><span class="dot">·</span>
+            <a href="mailto:dev.jh.joo@gmail.com">dev.jh.joo@gmail.com</a><span class="dot">·</span>
+            <a href="https://github.com/dev-jhjoo" target="_blank" rel="noopener">github.com/dev-jhjoo</a><span class="dot">·</span>
+            <a href="https://investing.twojh.com/" target="_blank" rel="noopener">investing.twojh.com</a>
+          </div>
+          <div class="chip-row" aria-label="핵심 역량">
+            <span class="chip">Internal Tools</span><span class="chip">Workflow Automation</span><span class="chip">AI Integration</span><span class="chip">Operational Resilience</span>
+          </div>
+          <div class="stats" aria-label="핵심 지표">
+            <div class="stat"><div class="stat__v">9년+</div><div class="stat__k">백엔드 개발·운영 경험</div></div>
+            <div class="stat"><div class="stat__v">300만+/일</div><div class="stat__k">메시지 유통 시스템</div></div>
+            <div class="stat"><div class="stat__v">30분</div><div class="stat__k">긴급 운영 도구 구축</div></div>
+            <div class="stat"><div class="stat__v">10+</div><div class="stat__k">외부 시스템·API 연동</div></div>
+          </div>
+        </section>
+      </div>
 
-    <!-- 히어로 (공통) -->
-    <div class="wrap">
-      <section class="hero">
-        <p class="hero__role">Senior Backend Engineer · 9년 차</p>
-        <h1>주지훈<span class="en">Jeehoon JOO</span></h1>
-        <p class="hero__tagline">
-          비즈니스 문제를 <strong>안정적인 시스템</strong>으로 해결하는 백엔드
-          개발자
-        </p>
-        <p class="hero__lead">
-          외부 API 연동, 대용량 데이터 처리, 복잡한 비즈니스 로직을 시스템으로
-          구현하고 운영해 왔습니다. 결제·커머스·항공·메시징 등 여러 도메인에서,
-          기능 구현을 넘어 운영 관점의 병목을 예측하고 개선하는 데 집중합니다.
-        </p>
+      <section class="view is-active" id="view-resume" role="tabpanel">
+        <div class="wrap">
+          <section>
+            <div class="section-head"><h2>FDE 방식으로 일하는 이유</h2><span>How I Work</span></div>
+            <div class="pillars">
+              <article class="pillar">
+                <h3>문제를 기능보다 먼저 정의합니다</h3>
+                <p>현업이 실제로 멈추는 지점과 필요한 최소 업무를 먼저 확인합니다. 완벽한 시스템을 기다리기보다, 영향도와 우선순위에 맞춰 작동 가능한 경로를 만듭니다.</p>
+              </article>
+              <article class="pillar">
+                <h3>데이터와 워크플로를 연결합니다</h3>
+                <p>외부 API, DB, 배치, 알림 채널을 한 흐름으로 설계합니다. 사람이 반복 조회·정리하던 정보를 현업이 즉시 활용할 수 있는 화면과 알림으로 바꿉니다.</p>
+              </article>
+              <article class="pillar">
+                <h3>빠르게 만들되 운영 가능하게 만듭니다</h3>
+                <p>예외 처리, 재시도, 속도 제한, 로그, 데이터 검증을 기본으로 둡니다. 빠른 프로토타입을 실제 운영의 출발점으로 연결하는 데 집중합니다.</p>
+              </article>
+            </div>
+          </section>
 
-        <div class="contacts">
-          <svg
-            fill="#787878"
-            height="200px"
-            width="200px"
-            version="1.1"
-            id="Layer_1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 460.45 460.45"
-            xml:space="preserve"
-            stroke="#787878"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <g>
-                <g>
-                  <path
-                    d="M444.396,167.33L249.284,6.831C243.747,2.277,236.986,0,230.225,0s-13.522,2.277-19.058,6.831L151.76,55.699V46.34 c0-8.284-6.716-15-15-15H64.81c-8.284,0-15,6.716-15,15v93.223L16.055,167.33c-9.781,8.046-13.456,21.369-9.182,33.291 c3.711,10.354,12.723,17.715,23.325,19.473V430.45c0,16.569,13.432,30,30,30h103.443c16.568,0,30-13.431,30-30v-76.474 c0-5.316,2.297-8.485,3.368-9.296h66.432c1.071,0.811,3.368,3.98,3.368,9.296v76.474c0,16.569,13.431,30,30,30h103.443 c16.569,0,30-13.431,30-30V220.095c10.603-1.757,19.614-9.119,23.325-19.473C457.852,188.699,454.177,175.377,444.396,167.33z M79.81,61.341h41.95v19.037l-41.95,34.508V61.341z M400.253,190.499v239.952H296.809v-76.474 c0-21.703-14.693-39.296-32.818-39.296H196.46c-18.125,0-32.818,17.594-32.818,39.296v76.474H60.198V190.499H35.113L230.225,30 l195.112,160.499H400.253z"
-                  ></path>
-                </g>
-              </g>
-            </g>
-          </svg>
-          <span>경기 고양시 덕양구</span>
-          <span class="dot">·</span>
-          <a href="mailto:dev.jh.joo@gmail.com">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-10 6L2 7" />
-            </svg>
-            dev.jh.joo@gmail.com
-          </a>
-          <span class="dot">·</span>
-          <a
-            href="https://dev-jhjoo.notion.site/2JH-Engineering-Repository-36bc0b2b28b5807bbc2fd893aa794451?pvs=74"
-            target="_blank"
-            rel="noopener"
-          >
-            <svg
-              viewBox="0 0 192 192"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="#757575"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                <path
-                  fill="#757575"
-                  fill-rule="evenodd"
-                  d="m138.462 21.522 27.784 19.588.044.033.275.201c1.713 1.256 3.349 2.455 4.452 3.83 1.411 1.76 1.884 3.644 1.884 5.877v104.706c0 3.587-.635 7.178-3.058 9.934-2.451 2.789-6.145 4.067-10.732 4.394l-.018.001-98.629 5.971-.021.001c-3.242.154-6.094.035-8.669-.907-2.688-.984-4.719-2.727-6.604-5.129l-.01-.012-19.979-25.979-.012-.017c-3.81-5.086-5.723-9.348-5.723-14.509V34.509c0-3.12.688-6.394 2.745-9.033 2.124-2.727 5.356-4.328 9.503-4.686l.058-.005 84.854-4.344c5.192-.445 8.938-.576 12.286.185 3.459.787 6.208 2.452 9.57 4.896ZM56.43 157.336h.002v3.3c0 1.904.47 2.337.613 2.452.296.235 1.203.652 3.642.518l97.449-5.371c1.928-.106 2.256-.649 2.348-.801l.005-.008c.29-.476.486-1.407.486-3.357V60.001c0-1.635-.334-2.218-.421-2.327l-.005-.007-.002-.003-.006-.002a.117.117 0 0 1-.012-.004c-.053-.019-.263-.078-.724-.037l-.057.005-101.622 5.668c-.624.056-.973.163-1.152.242-.142.062-.173.104-.181.116l-.002.002c-.066.085-.36.586-.36 2.321v91.361Zm9.085-106.705 87.074-4.506-21.028-15.375-.039-.031c-1.259-.98-2.507-1.854-4.12-2.46-1.588-.597-3.695-.993-6.669-.734l-.05.005-87.009 4.898h-.01a6.453 6.453 0 0 0-.893.116L49.934 48.56c2.037 1.646 3.109 2.146 4.337 2.367 1.538.277 3.52.167 7.722-.115l3.522-.237v.056Zm-34.231-3.586v83.893c0 .538.175 1.061.498 1.49l13.174 17.464V61.224a2.47 2.47 0 0 0-.877-1.889l-.08-.068-12.715-12.222Zm109.871 35.062c.451 2.04 0 4.082-2.041 4.315l-3.393.673v49.881c-2.947 1.586-5.66 2.492-7.927 2.492-3.622 0-4.528-1.134-7.239-4.53l-.003-.003L98.36 100.02v33.78l7.02 1.59s0 4.082-5.664 4.082l-15.615.906c-.455-.91 0-3.176 1.582-3.627l4.078-1.131V90.955l-5.66-.459c-.454-2.04.677-4.987 3.85-5.216l16.754-1.128 23.09 35.367V88.231l-5.885-.677c-.455-2.499 1.356-4.315 3.618-4.536l15.627-.91v-.001Z"
-                  clip-rule="evenodd"
-                ></path>
-              </g>
-            </svg>
-            notion/tech-blog
-          </a>
-          <span class="dot">·</span>
-          <a href="https://github.com/dev-jhjoo" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.59.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"
-              />
-            </svg>
-            github.com/dev-jhjoo
-          </a>
-        </div>
+          <section>
+            <div class="section-head"><h2>대표 문제 해결 사례</h2><span>Selected Cases</span><span class="section-note">문제 → 판단 → 실행 → 결과</span></div>
+            <div class="case-grid">
+              <article class="case">
+                <div class="case__meta">OPERATIONS CONTINUITY · 2026</div>
+                <h3>Emergency Backoffice</h3>
+                <p>운영 서버 하드웨어 장애로 특정 DB 접속이 끊기자, 여러 DB를 동기 참조하던 레거시 백오피스 전체가 중단된 상황을 대응했습니다.</p>
+                <ul class="case-list">
+                  <li>서버 복구에는 약 4시간이 필요해, 원 시스템 수정보다 운영팀의 최소 업무 확보를 우선 판단</li>
+                  <li>정상 DB만 참조하는 읽기 전용 Emergency Backoffice를 약 30분 내 구현</li>
+                  <li>회원 조회와 메시지 전송 현황 확인을 우회 제공하고, AI 도구는 구현 속도를 높이는 보조 수단으로 활용</li>
+                  <li>후속 개선 과제로 DB 이중화, 장애 의존성 격리, 부분 기능 저하 설계를 도출</li>
+                </ul>
+                <div class="case-result">결과: 서버 복구 기간 동안 핵심 운영 업무의 연속성 확보</div>
+              </article>
 
-        <div class="stats" aria-label="핵심 지표">
-          <div class="stat">
-            <div class="stat__v">9<small>년+</small></div>
-            <div class="stat__k">백엔드 개발 경력</div>
-          </div>
-          <div class="stat">
-            <div class="stat__v">300<small>만+/일</small></div>
-            <div class="stat__k">대용량 트랜잭션 처리</div>
-          </div>
-          <div class="stat">
-            <div class="stat__v">60<small>만+ 건</small></div>
-            <div class="stat__k">무중단 데이터 마이그레이션</div>
-          </div>
-          <div class="stat">
-            <div class="stat__v">10<small>+</small></div>
-            <div class="stat__k">외부 시스템 연동</div>
-          </div>
+              <article class="case">
+                <div class="case__meta">AI WORKFLOW · PERSONAL PROJECT</div>
+                <h3>Morning Report Alpha</h3>
+                <p>한국·미국 주요 20개 종목의 뉴스와 가격을 수집하고, LLM 분석 결과를 대시보드와 텔레그램 리포트로 제공하는 자동화 파이프라인입니다.</p>
+                <ul class="case-list">
+                  <li>Google News RSS·Yahoo Finance·Gemini API·Telegram·Cloudflare를 연결한 End-to-End 구성</li>
+                  <li>Structured Output으로 점수·추세·요약·인사이트를 정형화해 후속 화면과 알림에 안정적으로 연결</li>
+                  <li>Gemini 429/503 재시도, RetryInfo 지연 반영, 종목별 속도 제한, 텔레그램 청크 분할과 오류 검증 구현</li>
+                  <li>GitHub Actions 스케줄러로 일일 리포트와 장중 시세 갱신을 자동화</li>
+                </ul>
+                <div class="link-row">
+                  <a class="text-link" href="https://investing.twojh.com/" target="_blank" rel="noopener">라이브 대시보드 ↗</a>
+                  <a class="text-link" href="https://github.com/dev-jhjoo/morning-report-alpha" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section>
+            <div class="section-head"><h2>경력</h2><span>Experience</span></div>
+
+            <article class="job">
+              <div class="job__head"><div class="job__co">(주)케이피모바일<span class="job__kind">문자 중계 · 일 250~300만 메시지 유통</span></div><div class="job__date">2024.12 – 현재</div></div>
+              <p class="job__role">연구개발팀 과장</p>
+              <ul>
+                <li>DB 중심 메시지 처리 구조를 <strong>Kafka 기반 이벤트 스트림</strong>으로 전환하는 차세대 프로젝트에 참여하고, EOS·Partition·Consumer Group·Offset·재처리 전략을 정리한 사내 세미나를 주도.</li>
+                <li>메시지 타입별 <strong>DB → Queue 독립 파이프라인</strong>, 우선순위 큐, Bucket4j 기반 TPS 제어, Netty 비동기 이벤트 드리븐 통신을 적용해 고객사 Agent 구조 개선.</li>
+                <li>운영 서버 장애로 모놀리식 백오피스가 중단된 상황에서 정상 DB만 참조하는 Emergency Backoffice를 30분 내 구현해 최소 운영 기능 제공.</li>
+                <li>C++ 레거시를 Java로 점진 포팅하고, Windows Server EOS 대응과 약 60만 MMS 첨부 파일 이전을 안정적으로 수행.</li>
+              </ul>
+              <div class="tags"><span class="tag">Java · Spring Boot</span><span class="tag">Netty</span><span class="tag">Kafka</span><span class="tag">MySQL / PostgreSQL / Oracle</span><span class="tag">C++ (MFC)</span></div>
+            </article>
+
+            <article class="job">
+              <div class="job__head"><div class="job__co">커넥틴(주)<span class="job__kind">일용직 구인구직 플랫폼</span></div><div class="job__date">2023.08 – 2024.07 · 1년</div></div>
+              <p class="job__role">개발팀 팀장 · 백엔드 리드</p>
+              <ul>
+                <li>주니어 2명으로 구성된 개발팀을 리딩하며 일정·요구사항·배포를 관리하고, 현업 요구를 API와 운영 프로세스로 구체화.</li>
+                <li>AWS 3-tier 인프라를 설계·구축하고 Public/Private 서브넷 분리, RDS 격리, S3 Presigned URL로 개인정보 보호 강화.</li>
+                <li>GitHub Actions 기반 Docker 빌드·ECR 배포 CI/CD, OAuth·PASS 본인인증·Firebase 푸시 알림을 구현.</li>
+              </ul>
+              <div class="tags"><span class="tag">Node.js (TypeScript)</span><span class="tag">Sequelize</span><span class="tag">MariaDB (RDS)</span><span class="tag">AWS</span><span class="tag">GitHub Actions</span></div>
+            </article>
+
+            <article class="job">
+              <div class="job__head"><div class="job__co">(주)에이피엠멤버스<span class="job__kind">동대문 전자상거래 플랫폼</span></div><div class="job__date">2021.02 – 2022.12 · 1년 10개월</div></div>
+              <p class="job__role">백엔드 리드</p>
+              <ul>
+                <li>상품권·쿠폰·결제 게이트웨이·가맹점 정산 서버를 MSA 기반으로 설계·개발하고 운영 부서와 협업해 요구사항을 기능으로 구체화.</li>
+                <li>앱 런칭 후 가입자 약 1.7만 명, 가맹점 약 1천 개, 상품권 누적 판매 60억 원·정산 50억 원 규모 운영을 지원.</li>
+              </ul>
+              <div class="tags"><span class="tag">Node.js (TypeScript)</span><span class="tag">MySQL (Aurora)</span><span class="tag">MSA</span><span class="tag">Datadog · ELK</span><span class="tag">AWS</span></div>
+            </article>
+
+            <article class="job">
+              <div class="job__head"><div class="job__co">에어프레미아(주)<span class="job__kind">국내 신규 LCC</span></div><div class="job__date">2019.12 – 2021.01 · 1년 2개월</div></div>
+              <p class="job__role">I&amp;S 개발팀 · 결제 시스템 개발</p>
+              <ul>
+                <li>항공 예약 시스템 PSS(Navitaire)에 REST API를 제공하는 결제 게이트웨이를 개발하고, 국내 3개 VAN사 직연동과 승인·매입·정산 프로세스 전반을 구현.</li>
+              </ul>
+              <div class="tags"><span class="tag">Java · Spring Boot</span><span class="tag">JPA / Hibernate</span><span class="tag">Python (Tornado)</span><span class="tag">MySQL</span><span class="tag">AWS</span></div>
+            </article>
+
+            <article class="job">
+              <div class="job__head"><div class="job__co">엔에치엔케이씨피 · (주)엑심베이<span class="job__kind">국내·글로벌 PG</span></div><div class="job__date">2016.09 – 2019.08</div></div>
+              <p class="job__role">서버 개발 및 운영</p>
+              <ul>
+                <li>WeChat Pay 승인·취소 API, 호텔 결제, 정산 배치, 보험사 배치 모니터링을 운영하며 외부 연동 장애·데이터 불일치·운영 이슈를 대응.</li>
+              </ul>
+              <div class="tags"><span class="tag">Java</span><span class="tag">Socket</span><span class="tag">MySQL</span><span class="tag">On-premise</span></div>
+            </article>
+          </section>
+
+          <section>
+            <div class="section-head"><h2>기술과 실행 범위</h2><span>Capabilities</span></div>
+            <div class="skills-layout">
+              <article class="skill-panel"><h3>Backend &amp; Integration</h3><p>Java/Spring Boot와 Node.js/TypeScript를 기반으로 REST API, 외부 SaaS·결제·메시징 연동, 비동기 처리 시스템을 설계합니다.</p><div class="tags"><span class="tag">Java</span><span class="tag">TypeScript</span><span class="tag">Spring Boot</span><span class="tag">Node.js</span><span class="tag">Netty</span></div></article>
+              <article class="skill-panel"><h3>Data &amp; Automation</h3><p>DB·배치·워크플로·알림을 연결하고, LLM Structured Output을 활용해 사람이 쓰는 데이터 흐름으로 바꿉니다.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Kafka</span><span class="tag">GitHub Actions</span><span class="tag">Gemini API</span></div></article>
+              <article class="skill-panel"><h3>Operations &amp; Resilience</h3><p>Timeout, Retry, Rate Limit, Queue, 모니터링과 장애 격리를 고려해 빠른 도구도 운영 가능한 시스템으로 연결합니다.</p><div class="tags"><span class="tag">Retry / Backoff</span><span class="tag">Rate Limit</span><span class="tag">Datadog</span><span class="tag">ELK</span><span class="tag">Prometheus · Grafana</span></div></article>
+              <article class="skill-panel"><h3>Infra &amp; Delivery</h3><p>AWS 기반 인프라, Docker 이미지 빌드·배포, CI/CD 파이프라인을 구성하고 서비스 운영 환경을 함께 설계합니다.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">ECR</span><span class="tag">Jenkins</span><span class="tag">Cloudflare</span></div></article>
+            </div>
+          </section>
         </div>
       </section>
-    </div>
 
-    <!-- ===================== 이력서 ===================== -->
-    <div
-      class="view is-active"
-      id="view-resume"
-      role="tabpanel"
-      aria-labelledby="tab-resume"
-    >
-      <div class="wrap">
-        <section id="about">
-          <div class="sec-head">
-            <h2>일하는 방식</h2>
-            <span class="en">About</span>
-          </div>
-          <div class="pillars">
-            <div class="pillar">
-              <h3>안정적인 시스템으로 문제 해결</h3>
-              <p>
-                대용량 데이터와 복잡한 로직을 운영 관점에서 설계합니다. 구현을
-                넘어 발생 가능한 병목을 예측하고 선제적으로 개선합니다.
-              </p>
-            </div>
-            <div class="pillar">
-              <h3>견고하고 신뢰할 수 있는 서비스</h3>
-              <p>
-                예외 처리·로그 추적·모니터링·재처리 설계·데이터 검증을 철저히
-                해, 어떤 도메인에서도 흔들림 없는 서비스를 만듭니다.
-              </p>
-            </div>
-            <div class="pillar">
-              <h3>문제 정의에서 출발하는 접근</h3>
-              <p>
-                섣부른 해결보다 근본 원인을 정의합니다. 큰 문제를 작은 단위로
-                나누고, 로그·데이터 흐름을 근거로 분석합니다.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
+      <section class="view" id="view-cv" role="tabpanel">
+        <div class="wrap">
+          <section class="cv-intro">
+            <h2>경력기술서</h2>
+            <p>FDE/내부 도구 역할에 맞춰, 문제를 어떻게 정의했고 어떤 범위로 빠르게 실행했으며 어떤 운영 결과를 만들었는지에 집중해 정리했습니다.</p>
+          </section>
 
-      <div class="wrap">
-        <section id="skills">
-          <div class="sec-head">
-            <h2>보유 기술</h2>
-            <span class="en">Skills</span>
-          </div>
-          <div class="skills">
-            <div class="skillrow">
-              <div class="skillrow__k">Language</div>
-              <div class="tags">
-                <span class="tag tag--core">Java</span
-                ><span class="tag tag--core">JavaScript / TypeScript</span
-                ><span class="tag">Python</span>
-              </div>
-            </div>
-            <div class="skillrow">
-              <div class="skillrow__k">Backend</div>
-              <div class="tags">
-                <span class="tag tag--core">Spring Boot</span
-                ><span class="tag tag--core">Node.js</span
-                ><span class="tag">Netty</span
-                ><span class="tag">JPA / Hibernate</span
-                ><span class="tag">Sequelize</span>
-              </div>
-            </div>
-            <div class="skillrow">
-              <div class="skillrow__k">Database</div>
-              <div class="tags">
-                <span class="tag tag--core">MySQL</span
-                ><span class="tag">PostgreSQL</span
-                ><span class="tag">MariaDB</span><span class="tag">Oracle</span
-                ><span class="tag">MSSQL · Tibero</span>
-              </div>
-            </div>
-            <div class="skillrow">
-              <div class="skillrow__k">Queue / Stream</div>
-              <div class="tags">
-                <span class="tag tag--core">Kafka</span
-                ><span class="tag">RabbitMQ</span>
-              </div>
-            </div>
-            <div class="skillrow">
-              <div class="skillrow__k">Infra / CI·CD</div>
-              <div class="tags">
-                <span class="tag tag--core">AWS</span
-                ><span class="tag">GitHub Actions</span
-                ><span class="tag">Jenkins</span
-                ><span class="tag">Docker · ECR</span>
-              </div>
-            </div>
-            <div class="skillrow">
-              <div class="skillrow__k">Observability</div>
-              <div class="tags">
-                <span class="tag">Datadog</span><span class="tag">ELK</span
-                ><span class="tag">Prometheus</span
-                ><span class="tag">Grafana</span>
-              </div>
-            </div>
-            <div class="skillrow">
-              <div class="skillrow__k">Repository</div>
-              <div class="tags">
-                <span class="tag">Git · GitHub</span
-                ><span class="tag">Bitbucket</span><span class="tag">SVN</span>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div class="wrap">
-        <section id="career-brief">
-          <div class="sec-head">
-            <h2>경력</h2>
-            <span class="en">Experience</span
-            ><span class="note">상세 내용은 ‘경력기술서’ 탭</span>
-          </div>
-          <div class="jobs">
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  (주)케이피모바일<span class="kind">문자 중계 사업자</span>
-                </div>
-                <div class="job__date">
-                  2024.12 – <span class="now">현재</span>
-                </div>
-              </div>
-              <p class="job__role">연구개발팀 과장</p>
-              <ul class="job__list">
-                <li>
-                  C++ 레거시 서비스를 분석해 Java 기반으로 점진적 포팅·전환
-                </li>
-                <li>Windows Server 2012 EOS 대응 운영 서버 대개체 전환</li>
-                <li>
-                  DB 중심 메시지 처리 구조를 Kafka 이벤트 스트림으로 전환하는
-                  차세대 프로젝트 참여
-                </li>
-              </ul>
+          <section>
+            <div class="section-head"><h2>(주)케이피모바일</h2><span>Messaging Platform · 2024.12 – Present</span></div>
+            <article class="story">
+              <h3>장애 중에도 운영팀이 멈추지 않도록 최소 기능을 별도로 복구</h3>
+              <span class="story__label">상황</span>
+              <p>하드웨어 문제로 운영 서버가 셧다운되며 특정 DB 접근이 불가해졌고, 여러 서버의 DB를 동기적으로 참조하던 레거시 모놀리식 백오피스 전체가 동작하지 않았습니다. 서버 복구에는 약 4시간이 소요되는 상황이었습니다.</p>
+              <span class="story__label">판단</span>
+              <p>장애 난 시스템을 단기간에 복구하는 것보다, 운영팀이 즉시 필요한 회원 조회·메시지 발송 현황 확인을 별도 경로로 제공하는 일이 우선이라고 판단했습니다.</p>
+              <span class="story__label">실행</span>
+              <p>정상 DB만 참조하는 읽기 전용 Emergency Backoffice를 약 30분 내 구현했습니다. 빠른 개발을 위해 AI 도구를 보조적으로 활용했지만, 조회 범위와 데이터 의존성은 명시적으로 제한해 운영 리스크를 낮췄습니다.</p>
+              <p class="story__result">결과: 서버 복구 기간 동안 핵심 운영 업무를 지속하고, DB 이중화·의존성 격리·부분 기능 저하 설계의 개선 과제를 도출.</p>
             </article>
 
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  커넥틴(주)<span class="kind">일용직 구인구직 플랫폼</span>
-                </div>
-                <div class="job__date">2023.08 – 2024.07 · 1년</div>
-              </div>
-              <p class="job__role">개발팀 팀장</p>
-              <ul class="job__list">
-                <li>백엔드 REST API 개발 및 서비스 운영</li>
-                <li>AWS 기반 인프라 설계·운영, CI/CD 파이프라인 구축</li>
-                <li>개발팀 리딩 — 일정·요구사항·배포 관리</li>
-              </ul>
+            <article class="story">
+              <h3>메시징 처리 구조를 독립 파이프라인과 비동기 이벤트 처리로 개선</h3>
+              <span class="story__label">문제</span>
+              <p>고객사 Agent의 DB 중심 처리와 SQL limit 기반 TPS 제어는 메시지 유형별 우선순위, 속도 제어, 장애 격리 요구에 유연하게 대응하기 어려웠습니다.</p>
+              <span class="story__label">실행</span>
+              <p>메시지 타입별 DB → Queue 독립 파이프라인과 우선순위 큐를 도입하고, Bucket4j Rate Limiter로 TPS 제어를 개선했습니다. Socket 통신을 Netty 기반 이벤트 드리븐 방식으로 전환했습니다.</p>
+              <p class="story__result">결과: 대량 메시지 환경에서 처리 흐름의 독립성, 제어 가능성, 운영 가시성을 높이는 기반 마련.</p>
             </article>
+          </section>
 
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  (주)카닥<span class="kind"
-                    >차량 애프터서비스 비교 플랫폼</span
-                  >
-                </div>
-                <div class="job__date">2023.01 – 2023.03 · 3개월</div>
-              </div>
-              <p class="job__role">개발팀 매니저</p>
-              <ul class="job__list">
-                <li>레거시 쿠폰 및 결제 서비스 구조 분석</li>
-              </ul>
+          <section>
+            <div class="section-head"><h2>Morning Report Alpha</h2><span>Personal Project · AI Workflow</span></div>
+            <article class="story">
+              <h3>분산된 시장 데이터를 현업처럼 매일 소비할 수 있는 리포트로 연결</h3>
+              <span class="story__label">문제</span>
+              <p>여러 종목의 뉴스와 가격 정보를 매일 직접 확인하고 정리하는 과정은 반복적이고, 분석 결과의 형식이 일정하지 않아 대시보드·알림으로 재활용하기 어려웠습니다.</p>
+              <span class="story__label">실행</span>
+              <p>Google News RSS와 Yahoo Finance 데이터를 수집하고 Gemini Structured Output으로 점수·추세·요약·인사이트를 정형화했습니다. 결과를 CSV로 누적해 Cloudflare 대시보드와 Telegram 리포트로 제공하고, GitHub Actions가 정기 실행과 장중 시세 갱신을 맡도록 구성했습니다.</p>
+              <span class="story__label">운영 고려</span>
+              <p>429/503 재시도와 서버 제공 RetryInfo 반영, 종목별 요청 간격, 텔레그램 길이 제한 분할, 실패 응답 검증을 적용해 외부 API 의존성을 통제했습니다.</p>
+              <p class="story__result">결과: 데이터 수집 → AI 분석 → 저장 → 시각화 → 알림까지 연결된 실운영형 자동화 파이프라인 구축.</p>
             </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  (주)에이피엠멤버스<span class="kind"
-                    >동대문 전자상거래 플랫폼</span
-                  >
-                </div>
-                <div class="job__date">2021.02 – 2022.12 · 1년 10개월</div>
-              </div>
-              <p class="job__role">백엔드 리드</p>
-              <ul class="job__list">
-                <li>주니어 2명과 함께 MSA 기반 백엔드 서비스 설계·개발</li>
-                <li>쿠폰·상품권·결제·정산 등 핵심 도메인 기능 구현</li>
-                <li>
-                  백엔드 리드로서 API 설계·개발 방향 정리·운영 이슈 대응 총괄
-                </li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  에어프레미아(주)<span class="kind">국내 신규 LCC 항공사</span>
-                </div>
-                <div class="job__date">2019.12 – 2021.01 · 1년 2개월</div>
-              </div>
-              <p class="job__role">I&amp;S 개발팀 · 결제 시스템 개발</p>
-              <ul class="job__list">
-                <li>항공 예약 시스템(PSS)과 자체 결제 게이트웨이 연동</li>
-                <li>외부 기관(VAN사) 직연동 및 통합 정산 설계 참여</li>
-                <li>대용량·고신뢰가 요구되는 결제 프로세스 설계·구현</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  엔에치엔케이씨피(주)<span class="kind">국내 PG</span>
-                </div>
-                <div class="job__date">2019.04 – 2019.08 · 5개월</div>
-              </div>
-              <p class="job__role">서버개발2팀 매니저</p>
-              <ul class="job__list">
-                <li>금융사 배치 업무 모니터링 및 운영 대응</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  (주)엑심베이<span class="kind">글로벌 PG</span>
-                </div>
-                <div class="job__date">2016.09 – 2019.04 · 2년 8개월</div>
-              </div>
-              <p class="job__role">서버개발팀 · 서버 개발 및 운영</p>
-              <ul class="job__list">
-                <li>해외 결제 수단 API 연동 및 배치 시스템 개발·유지보수</li>
-                <li>Java 데몬 기반 모니터링 서버 운영</li>
-                <li>외부 연동 장애·데이터 불일치 등 운영 이슈 대응</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-      </div>
-
-      <div class="wrap">
-        <section id="edu">
-          <div class="sec-head">
-            <h2>교육 · 자격</h2>
-            <span class="en">Education &amp; Certification</span>
-          </div>
-          <div class="twocol">
-            <div>
-              <p class="subhead">학력 · 교육</p>
-              <div class="deflist">
-                <div class="defrow">
-                  <div>
-                    <div class="defrow__t">순천향대학교</div>
-                    <div class="defrow__s">
-                      컴퓨터 소프트웨어 공학과 · GPA 3.0/4.5
-                    </div>
-                  </div>
-                  <div class="defrow__d">2009 – 2016</div>
-                </div>
-                <div class="defrow">
-                  <div>
-                    <div class="defrow__t">
-                      프로그래머스 데이터분석 데브코스 4기
-                    </div>
-                    <div class="defrow__s">국비지원 부트캠프</div>
-                  </div>
-                  <div class="defrow__d">2024.08 – 11</div>
-                </div>
-                <div class="defrow">
-                  <div>
-                    <div class="defrow__t">태블로 신병훈련소 25기</div>
-                    <div class="defrow__s">세일즈포스 자체 교육</div>
-                  </div>
-                  <div class="defrow__d">2024.10 – 11</div>
-                </div>
-                <div class="defrow">
-                  <div>
-                    <div class="defrow__t">쌍용교육센터 웹 개발 과정</div>
-                    <div class="defrow__s">국비지원 부트캠프</div>
-                  </div>
-                  <div class="defrow__d">2015.08 – 2016.01</div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p class="subhead">자격증</p>
-              <div class="deflist">
-                <div class="defrow">
-                  <div>
-                    <div class="defrow__t">SQLD (SQL 개발자)</div>
-                    <div class="defrow__s">한국데이터산업진흥원</div>
-                  </div>
-                  <div class="defrow__d">2024.09</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-    <!-- /view-resume -->
-
-    <!-- ===================== 경력기술서 ===================== -->
-    <div class="view" id="view-cv" role="tabpanel" aria-labelledby="tab-cv">
-      <div class="wrap">
-        <div class="cv-lead">
-          <h2>경력기술서</h2>
-          <p>
-            회사별로 담당한 문제와 적용한 방식, 결과를 정리했습니다. 대용량
-            처리·외부 연동·팀 리딩 경험에 초점을 맞췄습니다.
-          </p>
+          </section>
         </div>
-      </div>
+      </section>
+    </main>
 
-      <div class="wrap">
-        <section id="career-detail" style="padding-top: 30px">
-          <div class="jobs">
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  (주)케이피모바일<span class="kind"
-                    >문자 중계 · 일 250~300만 메시지 유통</span
-                  >
-                </div>
-                <div class="job__date">
-                  2024.12 – <span class="now">현재</span>
-                </div>
-              </div>
-              <p class="job__role">연구개발팀 과장</p>
-              <ul class="job__list">
-                <li>
-                  DB 중심 메시지 처리 구조를
-                  <strong>Kafka 기반 이벤트 스트림</strong>으로 전환하는 차세대
-                  프로젝트에 참여. EOS·Partition·Consumer Group·Offset·재처리
-                  전략을 정리한 사내 Kafka 세미나를 주도해 팀 전환 기반 마련.
-                </li>
-                <li>
-                  고객사 Agent 개선: 메시지 타입별
-                  <strong>DB→Queue 독립 파이프라인</strong>과 우선순위 큐 도입,
-                  TPS 제어를 SQL limit에서
-                  <strong>Bucket4j Rate Limiter</strong>로 개선, 통신 방식을
-                  Socket에서 <strong>Netty 비동기 이벤트 드리븐</strong>으로
-                  전환.
-                </li>
-                <li>
-                  C++ 레거시 서비스를 분석해 운영 안정성을 유지하며 Java로
-                  점진적 포팅.
-                </li>
-                <li>
-                  Windows Server 2012 EOS 대응 서버 이관: binlog 비활성화 환경을
-                  고려한 마이그레이션 절차 수립, 제한된 대역폭에서 약 60만 MMS
-                  첨부 파일을 전용 Client/Server 앱으로 안정 이전.
-                </li>
-              </ul>
-              <div class="job__stack">
-                <span class="tag">Java · Spring Boot</span
-                ><span class="tag">Netty</span><span class="tag">Kafka</span
-                ><span class="tag">C++ (MFC)</span
-                ><span class="tag">MySQL / PostgreSQL / Oracle</span>
-              </div>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  커넥틴(주)<span class="kind">일용직 구인구직 플랫폼</span>
-                </div>
-                <div class="job__date">2023.08 – 2024.07 · 1년</div>
-              </div>
-              <p class="job__role">개발팀 팀장 · 백엔드 리드</p>
-              <ul class="job__list">
-                <li>
-                  주니어 2명(Flutter · 웹)으로 구성된 개발팀을 리딩하며
-                  일정·요구사항·배포를 관리.
-                </li>
-                <li>
-                  모바일 서비스에 맞춘
-                  <strong>AWS 3-tier 인프라</strong> 설계·구축. Public/Private
-                  서브넷 분리, RDS 격리, S3 Presigned URL로 개인정보 보안 강화.
-                </li>
-                <li>
-                  GitHub Actions로 Docker 이미지 빌드 후
-                  <strong>ECR 배포 CI/CD</strong> 구축.
-                </li>
-                <li>
-                  OAuth 소셜 로그인(Google·Kakao·Apple), 토큰 인증, PASS
-                  본인인증, Firebase 푸시 알림 구현.
-                </li>
-              </ul>
-              <div class="job__stack">
-                <span class="tag">Node.js (TS)</span
-                ><span class="tag">Sequelize</span
-                ><span class="tag">MariaDB (RDS)</span
-                ><span class="tag">AWS</span>
-              </div>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  (주)카닥<span class="kind"
-                    >차량 애프터서비스 비교 플랫폼</span
-                  >
-                </div>
-                <div class="job__date">2023.01 – 2023.03 · 3개월</div>
-              </div>
-              <p class="job__role">개발팀 매니저</p>
-              <ul class="job__list">
-                <li>레거시 쿠폰 및 결제 서비스 구조 분석.</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  (주)에이피엠멤버스<span class="kind"
-                    >동대문 전자상거래 플랫폼</span
-                  >
-                </div>
-                <div class="job__date">2021.02 – 2022.12 · 1년 10개월</div>
-              </div>
-              <p class="job__role">백엔드 리드</p>
-              <ul class="job__list">
-                <li>
-                  주니어 2명과 함께 <strong>MSA</strong> 기반으로
-                  상품권(발행·판매·사용·선물), 쿠폰,
-                  <strong>결제 게이트웨이</strong>,
-                  <strong>가맹점 정산</strong> 서버를 설계·개발.
-                </li>
-                <li>
-                  커머스 결제·정산 흐름을 고려해 백엔드를 설계하고, 운영 부서와
-                  협업해 요구사항을 기능으로 구체화.
-                </li>
-                <li>API 설계·개발 방향 정리·운영 이슈 대응을 리드로서 총괄.</li>
-                <li>
-                  앱 런칭 후 가입자 약 1.7만 명·가맹점 약 1천 개 확보, 상품권
-                  누적 판매 60억 원·정산 50억 원 규모 운영.
-                </li>
-              </ul>
-              <div class="job__stack">
-                <span class="tag">Node.js (TS)</span
-                ><span class="tag">MySQL (Aurora)</span
-                ><span class="tag">MSA</span
-                ><span class="tag">Datadog · ELK</span
-                ><span class="tag">AWS</span>
-              </div>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  에어프레미아(주)<span class="kind">국내 신규 LCC 항공사</span>
-                </div>
-                <div class="job__date">2019.12 – 2021.01 · 1년 2개월</div>
-              </div>
-              <p class="job__role">I&amp;S 개발팀 · 결제 시스템 개발</p>
-              <ul class="job__list">
-                <li>
-                  항공권 예매 시스템 PSS(Navitaire)에 REST API를 제공하는
-                  <strong>결제 게이트웨이(APG)</strong> 개발.
-                </li>
-                <li>
-                  국내 3개 VAN사(KICC·NICE·FDK) 직연동 및 승인 전문 연동. [PSS →
-                  APG → VAN사] 구조 구현.
-                </li>
-                <li>
-                  대표 매입사 선정 참여 및 3개 VAN사
-                  <strong>통합 정산</strong> 설계. 승인 → 매입 → 정산 프로세스
-                  전반 구현.
-                </li>
-              </ul>
-              <div class="job__stack">
-                <span class="tag">Java · Spring Boot</span
-                ><span class="tag">JPA / Hibernate</span
-                ><span class="tag">Python (Tornado)</span
-                ><span class="tag">MSA</span
-                ><span class="tag">MySQL · AWS</span>
-              </div>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  엔에치엔케이씨피(주)<span class="kind"
-                    >국내 PG · 카드 · 간편결제</span
-                  >
-                </div>
-                <div class="job__date">2019.04 – 2019.08 · 5개월</div>
-              </div>
-              <p class="job__role">서버개발2팀 매니저</p>
-              <ul class="job__list">
-                <li>보험사 배치 업무 모니터링 및 운영 대응.</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job__head">
-                <div class="job__co">
-                  (주)엑심베이<span class="kind">글로벌 PG · 해외 결제</span>
-                </div>
-                <div class="job__date">2016.09 – 2019.04 · 2년 8개월</div>
-              </div>
-              <p class="job__role">서버개발팀 · 서버 개발 및 운영</p>
-              <ul class="job__list">
-                <li>
-                  <strong>WeChat Pay 승인·취소 API</strong> 연동 및 정산용 배치
-                  운영·유지보수.
-                </li>
-                <li>
-                  호텔 결제 서비스 운영 — 체크인 카드 등록 후 체크아웃
-                  결제(Key-in·배치) 처리.
-                </li>
-                <li>
-                  순수 Java Socket 데몬 기반 모니터링 서버 운영. 외부 연동
-                  장애·데이터 불일치·운영 이슈 대응.
-                </li>
-              </ul>
-              <div class="job__stack">
-                <span class="tag">Java (Socket)</span
-                ><span class="tag">MySQL</span><span class="tag">SVN</span
-                ><span class="tag">On-premise</span>
-              </div>
-            </article>
-          </div>
-        </section>
-      </div>
-    </div>
-    <!-- /view-cv -->
-
-    <footer class="foot">
-      <div class="foot__inner">
-        <span>© 2026 주지훈 · Backend Engineer</span>
-        <span
-          ><a href="mailto:dev.jh.joo@gmail.com">dev.jh.joo@gmail.com</a> ·
-          <a href="https://github.com/dev-jhjoo" target="_blank" rel="noopener"
-            >github.com/dev-jhjoo</a
-          ></span
-        >
-      </div>
-    </footer>
+    <footer class="footer">© 2026 주지훈 · Backend Engineer · FDE / Internal Tools Focus</footer>
 
     <script>
-      (function () {
-        "use strict";
-        var root = document.documentElement;
+      const tabs = document.querySelectorAll('.tab');
+      const views = {
+        resume: document.getElementById('view-resume'),
+        cv: document.getElementById('view-cv')
+      };
 
-        /* 테마 */
-        var btn = document.getElementById("themeBtn");
-        var icon = document.getElementById("themeIcon");
-        var SUN =
-          '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
-        var MOON = '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>';
-        function applyTheme(t) {
-          root.setAttribute("data-theme", t);
-          icon.innerHTML = t === "dark" ? SUN : MOON;
-          btn.setAttribute(
-            "aria-label",
-            t === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환"
-          );
-        }
-        var savedT = null;
-        try {
-          savedT = localStorage.getItem("theme");
-        } catch (e) {}
-        var prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-        applyTheme(savedT || (prefersDark ? "dark" : "light"));
-        btn.addEventListener("click", function () {
-          var next =
-            root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-          applyTheme(next);
-          try {
-            localStorage.setItem("theme", next);
-          } catch (e) {}
+      function activateView(name) {
+        tabs.forEach((tab) => {
+          const active = tab.dataset.view === name;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', String(active));
         });
+        Object.entries(views).forEach(([key, view]) => view.classList.toggle('is-active', key === name));
+        history.replaceState(null, '', `#${name}`);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
-        /* 뷰 전환 */
-        var tabs = Array.prototype.slice.call(
-          document.querySelectorAll(".seg__btn")
-        );
-        var views = {
-          resume: document.getElementById("view-resume"),
-          cv: document.getElementById("view-cv"),
-        };
-        var pdfBtn = document.getElementById("pdfBtn");
-        function setView(name) {
-          if (!views[name]) name = "resume";
-          tabs.forEach(function (t) {
-            var on = t.getAttribute("data-view") === name;
-            t.classList.toggle("is-active", on);
-            t.setAttribute("aria-selected", on ? "true" : "false");
-          });
-          Object.keys(views).forEach(function (k) {
-            views[k].classList.toggle("is-active", k === name);
-          });
-          pdfBtn.title =
-            (name === "cv" ? "경력기술서" : "이력서") + "를 PDF로 저장";
-          try {
-            history.replaceState(null, "", "#" + name);
-          } catch (e) {}
-          window.scrollTo({ top: 0, behavior: "auto" });
-        }
-        tabs.forEach(function (t) {
-          t.addEventListener("click", function () {
-            setView(t.getAttribute("data-view"));
-          });
-        });
-        var initial = (location.hash || "").replace("#", "");
-        setView(initial === "cv" ? "cv" : "resume");
+      tabs.forEach((tab) => tab.addEventListener('click', () => activateView(tab.dataset.view)));
 
-        /* PDF: 현재 활성 탭만 */
-        pdfBtn.addEventListener("click", function () {
-          window.print();
-        });
-      })();
+      const initial = location.hash.replace('#', '');
+      if (views[initial]) activateView(initial);
+
+      const themeBtn = document.getElementById('themeBtn');
+      themeBtn.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('resume-theme', next);
+      });
+      const savedTheme = localStorage.getItem('resume-theme');
+      if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+
+      document.getElementById('pdfBtn').addEventListener('click', () => window.print());
     </script>
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
-      integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ=="
-      data-cf-beacon='{"version":"2024.11.0","token":"adbefefc89f942cc93687b85fe74e20a","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
