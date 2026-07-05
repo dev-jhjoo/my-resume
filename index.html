@@ -8,6 +8,13 @@
       name="description"
       content="현업의 병목을 정의하고 데이터·자동화·AI로 바로 쓰이는 도구를 만드는 9년 차 백엔드 엔지니어 주지훈의 이력서와 경력기술서."
     />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="주지훈 | Backend Engineer · FDE / Internal Tools Focus" />
+    <meta property="og:description" content="현업의 병목을 정의하고 데이터·자동화·AI로 바로 쓰이는 도구를 만드는 9년 차 백엔드 엔지니어 주지훈의 이력서와 경력기술서." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="주지훈 | Backend Engineer · FDE / Internal Tools Focus" />
+    <meta name="twitter:description" content="현업의 병목을 정의하고 데이터·자동화·AI로 바로 쓰이는 도구를 만드는 9년 차 백엔드 엔지니어 주지훈의 이력서와 경력기술서." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%84</text></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -327,6 +334,8 @@
         .hero { padding-top: 28px; }
         .case, .pillar, .skill-panel, .story { break-inside: avoid; }
         .wrap { width: 100%; }
+        .contact-row a[href^="http"]::after,
+        .text-link[href]::after { content: " (" attr(href) ")"; font-weight: 400; color: var(--muted); }
       }
     </style>
   </head>
@@ -335,8 +344,8 @@
       <div class="topbar__inner">
         <a class="brand" href="#top">주지훈 <span>Backend Engineer</span></a>
         <div class="tabs" role="tablist" aria-label="문서 보기 전환">
-          <button class="tab is-active" type="button" data-view="resume" role="tab" aria-selected="true">이력서</button>
-          <button class="tab" type="button" data-view="cv" role="tab" aria-selected="false">경력기술서</button>
+          <button class="tab is-active" type="button" data-view="resume" role="tab" aria-selected="true" id="tab-resume" aria-controls="view-resume">이력서</button>
+          <button class="tab" type="button" data-view="cv" role="tab" aria-selected="false" id="tab-cv" aria-controls="view-cv">경력기술서</button>
         </div>
         <div class="tools">
           <button class="icon-btn" id="themeBtn" type="button" aria-label="테마 전환">테마</button>
@@ -351,7 +360,7 @@
           <p class="eyebrow">Senior Backend Engineer · FDE / Internal Tools Focus · 9년 차</p>
           <h1>주지훈<span>Jeehoon JOO</span></h1>
           <p class="tagline">현업의 병목을 찾아, <strong>데이터·자동화·AI로 바로 쓰이는 도구</strong>를 만드는 엔지니어</p>
-          <p class="lead">결제·커머스·항공·메시징 도메인에서 대용량 처리와 외부 연동 시스템을 설계·운영해 왔습니다. 최근에는 장애 상황에서 업무 연속성을 확보하는 긴급 운영 도구와, 데이터 수집부터 AI 분석·알림까지 연결한 자동화 서비스를 직접 구축하며 문제 정의부터 배포·운영까지의 실행력을 확장하고 있습니다.</p>
+          <p class="lead">결제·커머스·항공·메시징 등 5개 도메인을 거치며 대용량 처리와 외부 연동 시스템을 설계·운영해 왔고, 그때마다 새로운 비즈니스 규칙과 시스템 구조를 빠르게 학습해 적응해 왔습니다. 최근에는 장애 상황에서 업무 연속성을 확보하는 긴급 운영 도구와, 데이터 수집부터 AI 분석·알림까지 연결한 자동화 서비스를 직접 구축하며 문제 정의부터 배포·운영까지의 실행력을 확장하고 있습니다.</p>
           <div class="contact-row">
             <span>경기 고양시 덕양구</span><span class="dot">·</span>
             <a href="mailto:dev.jh.joo@gmail.com">dev.jh.joo@gmail.com</a><span class="dot">·</span>
@@ -359,7 +368,7 @@
             <a href="https://investing.twojh.com/" target="_blank" rel="noopener">investing.twojh.com</a>
           </div>
           <div class="chip-row" aria-label="핵심 역량">
-            <span class="chip">Internal Tools</span><span class="chip">Workflow Automation</span><span class="chip">AI Integration</span><span class="chip">Operational Resilience</span>
+            <span class="chip">Internal Tools</span><span class="chip">Workflow Automation</span><span class="chip">AI Integration</span><span class="chip">Operational Resilience</span><span class="chip">Multi-Domain Adaptability</span>
           </div>
           <div class="stats" aria-label="핵심 지표">
             <div class="stat"><div class="stat__v">9년+</div><div class="stat__k">백엔드 개발·운영 경험</div></div>
@@ -370,7 +379,7 @@
         </section>
       </div>
 
-      <section class="view is-active" id="view-resume" role="tabpanel">
+      <section class="view is-active" id="view-resume" role="tabpanel" aria-labelledby="tab-resume">
         <div class="wrap">
           <section>
             <div class="section-head"><h2>FDE 방식으로 일하는 이유</h2><span>How I Work</span></div>
@@ -398,6 +407,7 @@
                 <h3>Emergency Backoffice</h3>
                 <p>운영 서버 하드웨어 장애로 특정 DB 접속이 끊기자, 여러 DB를 동기 참조하던 레거시 백오피스 전체가 중단된 상황을 대응했습니다.</p>
                 <ul class="case-list">
+                  <li>장애 직후 운영팀과 직접 소통해 실제로 멈추면 안 되는 업무(회원 조회·메시지 전송 현황 확인)를 빠르게 좁혀 확인</li>
                   <li>서버 복구에는 약 4시간이 필요해, 원 시스템 수정보다 운영팀의 최소 업무 확보를 우선 판단</li>
                   <li>정상 DB만 참조하는 읽기 전용 Emergency Backoffice를 약 30분 내 구현</li>
                   <li>회원 조회와 메시지 전송 현황 확인을 우회 제공하고, AI 도구는 구현 속도를 높이는 보조 수단으로 활용</li>
@@ -437,6 +447,16 @@
                 <li>C++ 레거시를 Java로 점진 포팅하고, Windows Server EOS 대응과 약 60만 MMS 첨부 파일 이전을 안정적으로 수행.</li>
               </ul>
               <div class="tags"><span class="tag">Java · Spring Boot</span><span class="tag">Netty</span><span class="tag">Kafka</span><span class="tag">MySQL / PostgreSQL / Oracle</span><span class="tag">C++ (MFC)</span></div>
+            </article>
+
+            <article class="job">
+              <div class="job__head"><div class="job__co">데이터 분석·시각화 집중 기간<span class="job__kind">데이터/BI 역량 확장</span></div><div class="job__date">2024.08 – 2024.11</div></div>
+              <p class="job__role">프로그래머스 데이터분석 데브코스 4기 · 태블로 신병훈련소 25기</p>
+              <ul>
+                <li>EDA·SQL 기반 데이터 분석 방법론과 Tableau를 활용한 데이터 시각화·대시보드 설계를 집중적으로 학습해, 백엔드 개발 역량에 데이터 분석·시각화 역량을 더함.</li>
+                <li>SQLD 취득으로 데이터 모델링·SQL 역량을 공식화하고, 이후 Morning Report Alpha의 데이터 파이프라인·대시보드 설계에 직접 적용.</li>
+              </ul>
+              <div class="tags"><span class="tag">Tableau</span><span class="tag">EDA</span><span class="tag">SQLD</span><span class="tag">Data Visualization</span></div>
             </article>
 
             <article class="job">
@@ -483,7 +503,7 @@
             <div class="section-head"><h2>기술과 실행 범위</h2><span>Capabilities</span></div>
             <div class="skills-layout">
               <article class="skill-panel"><h3>Backend &amp; Integration</h3><p>Java/Spring Boot와 Node.js/TypeScript를 기반으로 REST API, 외부 SaaS·결제·메시징 연동, 비동기 처리 시스템을 설계합니다.</p><div class="tags"><span class="tag">Java</span><span class="tag">TypeScript</span><span class="tag">Spring Boot</span><span class="tag">Node.js</span><span class="tag">Netty</span></div></article>
-              <article class="skill-panel"><h3>Data &amp; Automation</h3><p>DB·배치·워크플로·알림을 연결하고, LLM Structured Output을 활용해 사람이 쓰는 데이터 흐름으로 바꿉니다.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Kafka</span><span class="tag">GitHub Actions</span><span class="tag">Gemini API</span></div></article>
+              <article class="skill-panel"><h3>Data &amp; Automation</h3><p>DB·배치·워크플로·알림을 연결하고, EDA와 Tableau 기반 시각화로 현업이 바로 확인할 수 있는 형태로 가공합니다. LLM Structured Output을 활용해 사람이 쓰는 데이터 흐름으로 바꿉니다.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Kafka</span><span class="tag">Tableau</span><span class="tag">GitHub Actions</span><span class="tag">Gemini API</span></div></article>
               <article class="skill-panel"><h3>Operations &amp; Resilience</h3><p>Timeout, Retry, Rate Limit, Queue, 모니터링과 장애 격리를 고려해 빠른 도구도 운영 가능한 시스템으로 연결합니다.</p><div class="tags"><span class="tag">Retry / Backoff</span><span class="tag">Rate Limit</span><span class="tag">Datadog</span><span class="tag">ELK</span><span class="tag">Prometheus · Grafana</span></div></article>
               <article class="skill-panel"><h3>Infra &amp; Delivery</h3><p>AWS 기반 인프라, Docker 이미지 빌드·배포, CI/CD 파이프라인을 구성하고 서비스 운영 환경을 함께 설계합니다.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">ECR</span><span class="tag">Jenkins</span><span class="tag">Cloudflare</span></div></article>
             </div>
@@ -491,7 +511,7 @@
         </div>
       </section>
 
-      <section class="view" id="view-cv" role="tabpanel">
+      <section class="view" id="view-cv" role="tabpanel" aria-labelledby="tab-cv">
         <div class="wrap">
           <section class="cv-intro">
             <h2>경력기술서</h2>
@@ -505,7 +525,7 @@
               <span class="story__label">상황</span>
               <p>하드웨어 문제로 운영 서버가 셧다운되며 특정 DB 접근이 불가해졌고, 여러 서버의 DB를 동기적으로 참조하던 레거시 모놀리식 백오피스 전체가 동작하지 않았습니다. 서버 복구에는 약 4시간이 소요되는 상황이었습니다.</p>
               <span class="story__label">판단</span>
-              <p>장애 난 시스템을 단기간에 복구하는 것보다, 운영팀이 즉시 필요한 회원 조회·메시지 발송 현황 확인을 별도 경로로 제공하는 일이 우선이라고 판단했습니다.</p>
+              <p>장애 직후 운영팀과 직접 소통해 실제로 멈추면 안 되는 업무 범위를 확인한 결과, 장애 난 시스템을 단기간에 복구하는 것보다 운영팀이 즉시 필요한 회원 조회·메시지 발송 현황 확인을 별도 경로로 제공하는 일이 우선이라고 판단했습니다.</p>
               <span class="story__label">실행</span>
               <p>정상 DB만 참조하는 읽기 전용 Emergency Backoffice를 약 30분 내 구현했습니다. 빠른 개발을 위해 AI 도구를 보조적으로 활용했지만, 조회 범위와 데이터 의존성은 명시적으로 제한해 운영 리스크를 낮췄습니다.</p>
               <p class="story__result">결과: 서버 복구 기간 동안 핵심 운영 업무를 지속하고, DB 이중화·의존성 격리·부분 기능 저하 설계의 개선 과제를 도출.</p>
@@ -570,7 +590,8 @@
         localStorage.setItem('resume-theme', next);
       });
       const savedTheme = localStorage.getItem('resume-theme');
-      if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
 
       document.getElementById('pdfBtn').addEventListener('click', () => window.print());
     </script>
