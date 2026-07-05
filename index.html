@@ -543,43 +543,121 @@
         <div class="wrap">
           <section class="cv-intro">
             <h2>경력기술서</h2>
-            <p>FDE/내부 도구 역할에 맞춰, 문제를 어떻게 정의했고 어떤 범위로 빠르게 실행했으며 어떤 운영 결과를 만들었는지에 집중해 정리했습니다.</p>
+            <p>5개 회사에서 맡았던 역할과 기술 스택, 담당 업무를 회사별로 정리했습니다.</p>
           </section>
 
           <section>
-            <div class="section-head"><h2>(주)케이피모바일</h2><span>Messaging Platform · 2024.12 – Present</span></div>
+            <div class="section-head"><h2>(주)케이피모바일</h2><span>문자 중계 사업자 · 2024.12 – 현재</span></div>
             <article class="story">
-              <h3>장애 중에도 운영팀이 멈추지 않도록 최소 기능을 별도로 복구</h3>
-              <span class="story__label">상황</span>
-              <p>하드웨어 문제로 운영 서버가 셧다운되며 특정 DB 접근이 불가해졌고, 여러 서버의 DB를 동기적으로 참조하던 레거시 모놀리식 백오피스 전체가 동작하지 않았습니다. 서버 복구에는 약 4시간이 소요되는 상황이었습니다.</p>
-              <span class="story__label">판단</span>
-              <p>장애 직후 운영팀과 직접 소통해 실제로 멈추면 안 되는 업무 범위를 확인한 결과, 장애 난 시스템을 단기간에 복구하는 것보다 운영팀이 즉시 필요한 회원 조회·메시지 발송 현황 확인을 별도 경로로 제공하는 일이 우선이라고 판단했습니다.</p>
-              <span class="story__label">실행</span>
-              <p>정상 DB만 참조하는 읽기 전용 Emergency Backoffice를 약 30분 내 구현했습니다. 빠른 개발을 위해 AI 도구를 보조적으로 활용했지만, 조회 범위와 데이터 의존성은 명시적으로 제한해 운영 리스크를 낮췄습니다.</p>
-              <p class="story__result">결과: 서버 복구 기간 동안 핵심 운영 업무를 지속하고, DB 이중화·의존성 격리·부분 기능 저하 설계의 개선 과제를 도출.</p>
-            </article>
-
-            <article class="story">
-              <h3>메시징 처리 구조를 독립 파이프라인과 비동기 이벤트 처리로 개선</h3>
-              <span class="story__label">문제</span>
-              <p>고객사 Agent의 DB 중심 처리와 SQL limit 기반 TPS 제어는 메시지 유형별 우선순위, 속도 제어, 장애 격리 요구에 유연하게 대응하기 어려웠습니다.</p>
-              <span class="story__label">실행</span>
-              <p>메시지 타입별 DB → Queue 독립 파이프라인과 우선순위 큐를 도입하고, Bucket4j Rate Limiter로 TPS 제어를 개선했습니다. Socket 통신을 Netty 기반 이벤트 드리븐 방식으로 전환했습니다.</p>
-              <p class="story__result">결과: 대량 메시지 환경에서 처리 흐름의 독립성, 제어 가능성, 운영 가시성을 높이는 기반 마련.</p>
+              <p>국내 10개 문자 중계 사업소 중 한 곳으로, 일 평균 250~300만 메시지를 이동통신사 및 상위라인에 유통합니다.</p>
+              <span class="story__label">담당직무</span>
+              <p>연구개발팀 과장</p>
+              <span class="story__label">기술스택</span>
+              <div class="tags"><span class="tag">Java · Spring Boot</span><span class="tag">Netty</span><span class="tag">C++ (MFC)</span><span class="tag">MySQL / PostgreSQL / Oracle / MSSQL / Tibero</span><span class="tag">On-premise</span></div>
+              <span class="story__label">담당 업무</span>
+              <ul class="case-list">
+                <li>DB 중심 메시지 처리 구조에서 Kafka 기반 이벤트 스트림 구조로 전환하는 차세대 프로젝트 참여</li>
+                <li>C++ 기반 운영 중인 레거시 서비스 유지보수 및 Java 기반 서비스 전환 수행</li>
+                <li>Windows Server 2012 EOS에 따른 운영 서버 이관 수행</li>
+              </ul>
+              <span class="story__label">기여 포인트</span>
+              <ul class="case-list">
+                <li>Kafka 세미나를 주도해 Producer/Consumer, EOS, Partition, Consumer Group, Offset, 장애·재처리 전략에 대한 팀 내 공통 이해도를 확보하고 후속 설계·구현의 실행 기반을 마련</li>
+                <li>고객사 Agent 개선: 메시지 타입별 DB → Queue 독립 파이프라인과 우선순위 큐 도입, SQL limit 기반 TPS 제어를 Bucket4j Rate Limiter로 교체, Socket 통신을 Netty 비동기 이벤트 드리븐 방식으로 전환</li>
+                <li>Windows Server EOS 대응 이관: MySQL binlog 비활성화 환경을 고려한 마이그레이션 절차 수립, 제한된 네트워크 대역폭에서 약 60만 개 MMS 첨부파일을 전용 Client/Server 애플리케이션으로 안정적으로 이전</li>
+              </ul>
+              <div class="case-result">Emergency Backoffice: 운영 서버 장애 직후 운영팀과 직접 소통해 실제 필요한 최소 업무(회원 조회·메시지 발송 현황 확인)를 확인하고, 정상 DB만 참조하는 읽기 전용 백오피스를 30분 내 구현해 서버 복구 기간 동안 핵심 운영 업무의 연속성을 확보.</div>
             </article>
           </section>
 
           <section>
-            <div class="section-head"><h2>Morning Report Alpha</h2><span>Personal Project · AI Workflow</span></div>
+            <div class="section-head"><h2>커넥틴(주)</h2><span>일용직 구인구직 플랫폼 · 2023.08 – 2024.07 · 1년</span></div>
             <article class="story">
-              <h3>분산된 시장 데이터를 현업처럼 매일 소비할 수 있는 리포트로 연결</h3>
-              <span class="story__label">문제</span>
-              <p>여러 종목의 뉴스와 가격 정보를 매일 직접 확인하고 정리하는 과정은 반복적이고, 분석 결과의 형식이 일정하지 않아 대시보드·알림으로 재활용하기 어려웠습니다.</p>
-              <span class="story__label">실행</span>
-              <p>Google News RSS와 Yahoo Finance 데이터를 수집하고 Gemini Structured Output으로 점수·추세·요약·인사이트를 정형화했습니다. 결과를 CSV로 누적해 Cloudflare 대시보드와 Telegram 리포트로 제공하고, GitHub Actions가 정기 실행과 장중 시세 갱신을 맡도록 구성했습니다.</p>
-              <span class="story__label">운영 고려</span>
-              <p>429/503 재시도와 서버 제공 RetryInfo 반영, 종목별 요청 간격, 텔레그램 길이 제한 분할, 실패 응답 검증을 적용해 외부 API 의존성을 통제했습니다.</p>
-              <p class="story__result">결과: 데이터 수집 → AI 분석 → 저장 → 시각화 → 알림까지 연결된 실운영형 자동화 파이프라인 구축.</p>
+              <p>건설 일용직 구인구직 플랫폼으로, 기존 인력사무소를 방문해야 하는 어려움을 해소하고 열악한 근무 환경과 임금체불 등 건설 근로의 사회적 문제를 해결하고자 하는 서비스입니다.</p>
+              <span class="story__label">담당직무</span>
+              <p>개발팀 팀장 (Flutter 주니어 1명, 웹 개발자 주니어 1명 리딩)</p>
+              <span class="story__label">기술스택</span>
+              <div class="tags"><span class="tag">Node.js (TypeScript)</span><span class="tag">Sequelize</span><span class="tag">MariaDB (RDS)</span><span class="tag">AWS</span></div>
+              <span class="story__label">담당 업무</span>
+              <ul class="case-list">
+                <li>백엔드 REST API 개발 및 서비스 운영</li>
+                <li>AWS 기반 인프라 설계 및 운영</li>
+                <li>개발팀 리딩, 일정 관리, 요구사항 정리 및 서비스 배포 관리</li>
+              </ul>
+              <span class="story__label">기여 포인트</span>
+              <ul class="case-list">
+                <li>3-tier 아키텍처 설계·구축: Public subnet(Bastion Host·REST API 서버), Private subnet(RDS 격리)으로 보안성 확보, S3 Presigned URL로 개인정보 이미지 저장 보안 강화</li>
+                <li>GitHub Actions 기반 Docker 이미지 빌드·ECR 배포 CI/CD 파이프라인 구축</li>
+                <li>OAuth 소셜 로그인(Google·Kakao·Apple), PASS 본인인증, Firebase 앱 푸시 알림 구현</li>
+                <li>주니어 2명으로 구성된 개발팀을 리딩하며 현업 요구사항을 API와 운영 프로세스로 구체화</li>
+              </ul>
+            </article>
+          </section>
+
+          <section>
+            <div class="section-head"><h2>(주)에이피엠멤버스</h2><span>동대문 전자상거래 플랫폼 · 2021.02 – 2022.12 · 1년 10개월</span></div>
+            <article class="story">
+              <p>기존 현금과 수기로 이루어지던 동대문 의류 도매시장의 디지털 전환을 위해 동대문 APM 그룹의 자회사로 설립되어, 자체 전자 상품권을 발행·결제·정산하는 서비스를 제공했습니다.</p>
+              <span class="story__label">담당직무</span>
+              <p>백엔드 리드 (백엔드 주니어 개발자 2명)</p>
+              <span class="story__label">기술스택</span>
+              <div class="tags"><span class="tag">Node.js (TypeScript)</span><span class="tag">Sequelize</span><span class="tag">MySQL (Aurora)</span><span class="tag">MSA</span><span class="tag">Datadog · ELK</span><span class="tag">AWS</span></div>
+              <span class="story__label">담당 업무</span>
+              <ul class="case-list">
+                <li>Voucher(상품권 발행·판매·사용·선물·지급), Coupon, Payment(결제 게이트웨이), Settlement(가맹점 정산) 4개 서버를 MSA 기반으로 설계·개발</li>
+                <li>운영 부서와 협업해 정산·결제 요구사항을 서비스 기능으로 구체화</li>
+                <li>백엔드 리드로서 API 설계, 개발 방향 정리, 서비스 운영 이슈 대응</li>
+              </ul>
+              <span class="story__label">기여 포인트</span>
+              <ul class="case-list">
+                <li>앱 런칭(2022.03) 후 2022년 11월 기준 가입자 약 1.7만 명, 가맹점 수 약 1천 개 규모로 서비스 안정 운영</li>
+                <li>상품권 서비스 런칭(2022.08) 후 누적 판매액 60억 원, 거래 건수 약 1만 건, 가맹점 정산 금액 50억 원 규모 운영 지원</li>
+              </ul>
+            </article>
+          </section>
+
+          <section>
+            <div class="section-head"><h2>에어프레미아(주)</h2><span>국내 신규 LCC · 2019.12 – 2021.01 · 1년 2개월</span></div>
+            <article class="story">
+              <p>항공 이용의 불편함을 해결하고 낮은 금액으로 프리미엄급 서비스를 제공하자는 사명의 신규 LCC 항공사입니다.</p>
+              <span class="story__label">담당직무</span>
+              <p>I&amp;S 개발팀 · 결제 시스템 개발</p>
+              <span class="story__label">기술스택</span>
+              <div class="tags"><span class="tag">Java · Spring Boot</span><span class="tag">JPA / Hibernate</span><span class="tag">Python (Tornado)</span><span class="tag">MySQL</span><span class="tag">MSA</span><span class="tag">AWS</span></div>
+              <span class="story__label">담당 업무</span>
+              <ul class="case-list">
+                <li>APG(Airpremia Payment Gateway) 개발: 항공 예약 시스템 PSS(Navitaire)의 결제 시스템에 REST API 제공</li>
+                <li>국내 3개 VAN사(KICC · NICE · FDK) 직연동</li>
+              </ul>
+              <span class="story__label">기여 포인트</span>
+              <ul class="case-list">
+                <li>[PSS 결제요청 → APG → 국내 VAN사 결제요청] 구조의 결제 게이트웨이 개발</li>
+                <li>3개 VAN사 통합 정산 설계 참여, 대표 매입사 선정 과정 참여</li>
+                <li>승인 → 매입 → 정산으로 이어지는 항공 결제 프로세스 전반을 이해하고 구현한 경험 확보</li>
+              </ul>
+            </article>
+          </section>
+
+          <section>
+            <div class="section-head"><h2>엔에치엔케이씨피 · (주)엑심베이</h2><span>국내·글로벌 PG · 2016.09 – 2019.08</span></div>
+            <article class="story">
+              <p>엔에치엔케이씨피는 국내 PG·카드·간편결제를 제공하는 회사이며, 엑심베이는 국내/해외 통합 결제 서비스를 제공하는 글로벌 PG사로 온라인 해외 카드결제 및 간편결제 API를 제공합니다.</p>
+              <span class="story__label">담당직무</span>
+              <p>서버 개발 및 운영 (엑심베이: 승인·배치 서버 개발 및 모니터링 / 엔에치엔케이씨피: 보험사 배치 업무 모니터링 및 운영 대응)</p>
+              <span class="story__label">기술스택</span>
+              <div class="tags"><span class="tag">Java (Socket)</span><span class="tag">MySQL</span><span class="tag">SVN</span><span class="tag">On-premise</span></div>
+              <span class="story__label">담당 업무</span>
+              <ul class="case-list">
+                <li>WeChat Pay 승인·취소 API 연동 개발 및 운영</li>
+                <li>승인·취소 거래 정산을 위한 배치 운영 및 유지보수</li>
+                <li>호텔결제 G-Billing 서비스 운영: 체크인 시 카드 등록 후 체크아웃 시 결제하는 Key-in·배치 결제 운영</li>
+                <li>보험사 배치 업무 모니터링 및 운영 대응</li>
+              </ul>
+              <span class="story__label">기여 포인트</span>
+              <ul class="case-list">
+                <li>글로벌 PG 환경에서 해외 간편결제 연동 및 운영 경험 확보</li>
+                <li>외부 결제 수단 연동 시 발생할 수 있는 장애, 데이터 불일치, 운영 이슈 대응 경험 축적</li>
+              </ul>
             </article>
           </section>
         </div>
