@@ -136,13 +136,6 @@
       .icon-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
 
       .hero { padding: 62px 0 40px; }
-      .eyebrow {
-        margin: 0 0 14px;
-        color: var(--accent-ink);
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: .035em;
-      }
       h1 {
         margin: 0;
         font-size: clamp(42px, 7vw, 62px);
@@ -182,17 +175,6 @@
       .contact-row { margin-top: 24px; color: var(--ink-soft); font-size: 14px; }
       .contact-row a:hover { color: var(--accent-ink); }
       .dot { color: var(--border); }
-      .chip-row { margin-top: 20px; }
-      .chip {
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        padding: 5px 10px;
-        background: var(--surface);
-        color: var(--ink-soft);
-        font-size: 12px;
-        font-weight: 700;
-      }
-
       .stats {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -394,18 +376,15 @@
     <main id="top">
       <div class="wrap">
         <section class="hero">
-          <p class="eyebrow">Senior Backend Engineer · FDE / Internal Tools Focus · 9년 차</p>
-          <h1>주지훈<span>Jeehoon JOO</span></h1>
+          <h1>주지훈</h1>
           <p class="tagline">현업의 병목을 찾아, <strong>데이터·자동화·AI로 바로 쓰이는 도구</strong>를 만드는 엔지니어</p>
           <p class="lead">결제·커머스·항공·메시징 등 5개 도메인을 거치며 대용량 처리와 외부 연동 시스템을 설계·운영해 왔고, 그때마다 새로운 비즈니스 규칙과 시스템 구조를 빠르게 학습해 적응해 왔습니다. 최근에는 장애 상황에서 업무 연속성을 확보하는 긴급 운영 도구와, 데이터 수집부터 AI 분석·알림까지 연결한 자동화 서비스를 직접 구축하며 문제 정의부터 배포·운영까지의 실행력을 확장하고 있습니다.</p>
           <div class="contact-row">
             <span>경기 고양시 덕양구</span><span class="dot">·</span>
             <a href="mailto:dev.jh.joo@gmail.com">dev.jh.joo@gmail.com</a><span class="dot">·</span>
             <a href="https://github.com/dev-jhjoo" target="_blank" rel="noopener">github.com/dev-jhjoo</a><span class="dot">·</span>
-            <a href="https://investing.twojh.com/" target="_blank" rel="noopener">investing.twojh.com</a>
-          </div>
-          <div class="chip-row" aria-label="핵심 역량">
-            <span class="chip">Internal Tools</span><span class="chip">Workflow Automation</span><span class="chip">AI Integration</span><span class="chip">Operational Resilience</span><span class="chip">Multi-Domain Adaptability</span>
+            <a href="https://investing.twojh.com/" target="_blank" rel="noopener">investing.twojh.com</a><span class="dot">·</span>
+            <a href="https://dev-jhjoo.notion.site/2JH-Engineering-Repository-36bc0b2b28b5807bbc2fd893aa794451" target="_blank" rel="noopener">기술 블로그 ↗</a>
           </div>
           <div class="stats" aria-label="핵심 지표">
             <div class="stat"><div class="stat__v">9년+</div><div class="stat__k">백엔드 개발·운영 경험</div></div>
@@ -419,7 +398,7 @@
       <section class="view is-active" id="view-resume" role="tabpanel" aria-labelledby="tab-resume">
         <div class="wrap">
           <section>
-            <div class="section-head"><h2>일하는 방식</h2><span>How I Work</span></div>
+            <div class="section-head"><h2>일하는 방식</h2></div>
             <div class="pillars">
               <article class="pillar">
                 <h3>문제를 기능보다 먼저 정의합니다</h3>
@@ -437,10 +416,9 @@
           </section>
 
           <section>
-            <div class="section-head"><h2>대표 문제 해결 사례</h2><span>Selected Cases</span><span class="section-note">문제 → 판단 → 실행 → 결과</span></div>
+            <div class="section-head"><h2>대표 문제 해결 사례</h2></div>
             <div class="case-grid">
               <article class="case">
-                <div class="case__meta">OPERATIONS CONTINUITY · 2026</div>
                 <h3>Emergency Backoffice</h3>
                 <p>운영 서버 하드웨어 장애로 특정 DB 접속이 끊기자, 여러 DB를 동기 참조하던 레거시 백오피스 전체가 중단된 상황을 대응했습니다.</p>
                 <ul class="case-list">
@@ -454,7 +432,6 @@
               </article>
 
               <article class="case">
-                <div class="case__meta">AI WORKFLOW · PERSONAL PROJECT</div>
                 <h3>Morning Report Alpha</h3>
                 <p>한국·미국 주요 20개 종목의 뉴스와 가격을 수집하고, LLM 분석 결과를 대시보드와 텔레그램 리포트로 제공하는 자동화 파이프라인입니다.</p>
                 <ul class="case-list">
@@ -472,7 +449,7 @@
           </section>
 
           <section>
-            <div class="section-head"><h2>경력</h2><span>Experience</span></div>
+            <div class="section-head"><h2>경력</h2></div>
 
             <article class="job">
               <div class="job__head"><div class="job__co">(주)케이피모바일<span class="job__kind">문자 중계 · 일 250~300만 메시지 유통</span></div><div class="job__date">2024.12 – 현재</div></div>
@@ -501,9 +478,8 @@
               <div class="job__head"><div class="job__co">카닥<span class="job__kind">차량 애프터 서비스 비교견적 플랫폼</span></div><div class="job__date">2023.01 – 2023.03</div></div>
               <p class="job__role">서버 개발 및 운영</p>
               <ul>
-                <li>레거시 쿠폰 및 결제 서비스 구조 분석</li>
+                <li>레거시 쿠폰 시스템 분석 및 개선 진행</li>
               </ul>
-              <div class="tags"><span class="tag">Java</span><span class="tag">Nodejs</span><span class="tag">MySQL</span><span class="tag">k8s</span></div>
             </article>
 
             <article class="job">
@@ -529,9 +505,8 @@
               <div class="job__head"><div class="job__co">엔에치엔케이씨피<span class="job__kind">국내 PG</span></div><div class="job__date">2019.04 – 2019.08</div></div>
               <p class="job__role">서버 개발 및 운영</p>
               <ul>
-                <li>보험사 배치 모니터링을 운영</li>
+                <li>AIA손해보험 배치업무 모니터링</li>
               </ul>
-              <div class="tags"><span class="tag">Java</span><span class="tag">Socket</span><span class="tag">MySQL</span><span class="tag">On-premise</span></div>
             </article>
 
             <article class="job">
@@ -545,7 +520,7 @@
           </section>
 
           <section>
-            <div class="section-head"><h2>기술과 실행 범위</h2><span>Capabilities</span></div>
+            <div class="section-head"><h2>기술과 실행 범위</h2></div>
             <div class="skills-layout">
               <article class="skill-panel"><h3>Backend &amp; Integration</h3><p>Java/Spring Boot와 Node.js/TypeScript를 기반으로 REST API, 외부 SaaS·결제·메시징 연동, 비동기 처리 시스템을 설계합니다.</p><div class="tags"><span class="tag">Java</span><span class="tag">TypeScript</span><span class="tag">Spring Boot</span><span class="tag">Node.js</span><span class="tag">Netty</span></div></article>
               <article class="skill-panel"><h3>Data &amp; Automation</h3><p>DB·배치·워크플로·알림을 연결하고, EDA와 Tableau 기반 시각화로 현업이 바로 확인할 수 있는 형태로 가공합니다. LLM Structured Output을 활용해 사람이 쓰는 데이터 흐름으로 바꿉니다.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Kafka</span><span class="tag">Tableau</span><span class="tag">GitHub Actions</span><span class="tag">Gemini API</span></div></article>
@@ -689,7 +664,6 @@
             <article class="portfolio-card">
               <div class="portfolio-card__head">
                 <div>
-                  <div class="case__meta">AI WORKFLOW · PERSONAL PROJECT</div>
                   <h3>Morning Report Alpha</h3>
                   <p>외부 데이터 수집 → AI 분석 → 저장 → 대시보드 → 알림을 하나의 운영 가능한 워크플로로 연결한 개인 프로젝트입니다. 한국·미국 주요 20개 종목의 뉴스와 가격 데이터를 자동 수집하고, Gemini로 투자심리를 정형화합니다.</p>
                 </div>
