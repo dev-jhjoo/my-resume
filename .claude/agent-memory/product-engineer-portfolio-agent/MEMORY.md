@@ -1,0 +1,4 @@
+- [User Profile](user_profile.md) — 주지훈, 9년차 백엔드, Product Engineer로 리포지셔닝 중, 실제 포트폴리오는 Morning Report Alpha 1건뿐
+- [Product Engineer Repositioning Project](project_product_engineer_repositioning.md) — my-resume 리포지셔닝 진행 상황, hero-cta 제거·WishLamp/AI Product Lab 제외·FDE 완전삭제 확정
+- [Feedback: Analysis First + Visible TODOs](feedback_analysis_before_edit_and_visible_todos.md) — 분석 문서 먼저, 미확인 사실은 `.todo-flag`로 화면에 표시
+- [Feedback: 한글로 답변](feedback_communication_language.md) — 이 프로젝트 대화는 한글로 진행
