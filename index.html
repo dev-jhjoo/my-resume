@@ -909,15 +909,18 @@
               <p class="job__role">연구개발팀 과장</p>
               <ul>
                 <li>
-                  DB 중심 메시지 처리 구조를
-                  <strong>Kafka 기반 이벤트 스트림</strong>으로 전환하는 차세대
-                  프로젝트에 참여하고, EOS·Partition·Consumer
-                  Group·Offset·재처리 전략을 정리한 사내 세미나를 주도.
+                  DB 중심 메시지 처리 구조가 처리량 확장에 한계를 보이는
+                  상황에서, <strong>Kafka 기반 이벤트 스트림</strong>으로
+                  전환하는 차세대 프로젝트에 참여하고 EOS·Partition·Consumer
+                  Group·Offset·재처리 전략을 정리한 사내 세미나를 주도해 팀의
+                  설계 이해도를 높임.
                 </li>
                 <li>
-                  메시지 타입별 <strong>DB → Queue 독립 파이프라인</strong>,
-                  우선순위 큐, Bucket4j 기반 TPS 제어, Netty 비동기 이벤트
-                  드리븐 통신을 적용해 고객사 Agent 구조 개선.
+                  기존 SQL 기반 TPS 제어와 동기식 Socket 통신 방식의 한계를
+                  개선하기 위해, 메시지 타입별
+                  <strong>DB → Queue 독립 파이프라인</strong>과 우선순위 큐를
+                  도입하고 Bucket4j 기반 TPS 제어·Netty 비동기 이벤트 드리븐
+                  통신으로 전환해 고객사 Agent 구조 개선.
                 </li>
                 <li>
                   운영 서버 장애로 모놀리식 백오피스가 중단된 상황에서 정상 DB만
@@ -925,8 +928,9 @@
                   제공.
                 </li>
                 <li>
-                  C++ 레거시를 Java로 점진 포팅하고, Windows Server EOS 대응과
-                  약 60만 MMS 첨부 파일 이전을 안정적으로 수행.
+                  Windows Server EOS로 운영 서버 이관이 불가피한 상황에서, C++
+                  레거시를 Java로 점진 포팅하며 약 60만 개 MMS 첨부 파일을
+                  안정적으로 이전.
                 </li>
               </ul>
               <div class="tags">
@@ -949,16 +953,18 @@
               <p class="job__role">개발팀 팀장 · 백엔드 리드</p>
               <ul>
                 <li>
-                  주니어 2명으로 구성된 개발팀을 리딩하며 일정·요구사항·배포를
-                  관리하고, 현업 요구를 API와 운영 프로세스로 구체화.
+                  주니어 2명으로 구성된 개발팀을 리딩하며 일정·요구사항·배포
+                  전반을 관리하고, 현업 요구를 API와 운영 프로세스로 구체화.
                 </li>
                 <li>
-                  AWS 3-tier 인프라를 설계·구축하고 Public/Private 서브넷 분리,
-                  RDS 격리, S3 Presigned URL로 개인정보 보호 강화.
+                  개인정보 보호와 인프라 접근 통제를 강화하기 위해 AWS 3-tier
+                  인프라를 설계·구축. Public/Private 서브넷을 분리하고 RDS를
+                  격리했으며, S3 Presigned URL로 이미지 업로드 보안을 확보.
                 </li>
                 <li>
-                  GitHub Actions 기반 Docker 빌드·ECR 배포 CI/CD, OAuth·PASS
-                  본인인증·Firebase 푸시 알림을 구현.
+                  배포 신뢰성과 사용자 인증 안전성을 높이기 위해 GitHub Actions
+                  기반 Docker 빌드·ECR 배포 CI/CD를 구축하고, OAuth 소셜
+                  로그인·PASS 본인인증·Firebase 푸시 알림을 구현.
                 </li>
               </ul>
               <div class="tags">
@@ -981,7 +987,7 @@
               </div>
               <p class="job__role">서버 개발 및 운영</p>
               <ul>
-                <li>레거시 쿠폰 시스템 분석 및 개선 진행</li>
+                <li>레거시 쿠폰 시스템의 구조를 분석하고 개선 방향을 도출해 반영.</li>
               </ul>
             </article>
 
@@ -997,8 +1003,9 @@
               <p class="job__role">백엔드 리드</p>
               <ul>
                 <li>
+                  운영 부서와 협업해 정산·결제 요구사항을 기능으로 구체화하고,
                   상품권·쿠폰·결제 게이트웨이·가맹점 정산 서버를 MSA 기반으로
-                  설계·개발하고 운영 부서와 협업해 요구사항을 기능으로 구체화.
+                  설계·개발.
                 </li>
                 <li>
                   앱 런칭 후 가입자 약 1.7만 명, 가맹점 약 1천 개, 상품권 누적
@@ -1024,9 +1031,10 @@
               <p class="job__role">I&amp;S 개발팀 · 결제 시스템 개발</p>
               <ul>
                 <li>
-                  항공 예약 시스템 PSS(Navitaire)에 REST API를 제공하는 결제
-                  게이트웨이를 개발하고, 국내 3개 VAN사 직연동과 승인·매입·정산
-                  프로세스 전반을 구현.
+                  항공 예약 시스템 PSS(Navitaire)와 국내 3개 VAN사를 연결할
+                  결제 게이트웨이가 필요한 상황에서, REST API 기반 결제
+                  게이트웨이를 개발하고 VAN사 직연동과 승인·매입·정산 프로세스
+                  전반을 구현.
                 </li>
               </ul>
               <div class="tags">
@@ -1046,7 +1054,7 @@
               </div>
               <p class="job__role">서버 개발 및 운영</p>
               <ul>
-                <li>AIA손해보험 배치업무 모니터링</li>
+                <li>AIA손해보험 배치 업무 모니터링을 담당.</li>
               </ul>
             </article>
 
@@ -1060,8 +1068,9 @@
               <p class="job__role">서버 개발 및 운영</p>
               <ul>
                 <li>
-                  WeChat Pay 승인·취소 API, 호텔 결제, 정산 배치, 보험사 배치
-                  모니터링을 운영하며 외부 연동 장애·데이터 불일치·운영 이슈를
+                  글로벌 결제 연동 환경에서 외부 시스템 장애와 데이터 불일치가
+                  반복적으로 발생해, WeChat Pay 승인·취소 API, 호텔 결제, 정산
+                  배치, 보험사 배치 모니터링을 운영하며 이런 이슈들을 직접
                   대응.
                 </li>
               </ul>
