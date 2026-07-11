@@ -35,11 +35,11 @@ Target (phased — not all built this iteration):
 1. **Hero** — Product Engineer positioning, one-line + supporting paragraph, contact row and stat bar kept as-is (already factual, still useful as backend-credibility signal). **Decided (2026-07-11): no hero CTA row.** A CTA row was prototyped (links into `#portfolio`/`#resume`/`#cv`/`mailto:`) but the user asked for it to be removed — the topbar tabs remain the only navigation into the three views. Do not re-add a hero CTA row without a new explicit request.
 2. **Featured Products** *(decided excluded)* — currently only one verified product exists (Morning Report Alpha); stays a single card. WishLamp / hair-exam quiz / route-planning MCP will **not** be added — user confirmed (2026-07-11) to exclude these.
 3. **Product Case Studies** *(this iteration: 1 of N)* — deep-dive using Problem / Hypothesis / MVP / Key Decisions / Current Result / Learnings / Next / Technology. Lives inside the existing `#portfolio` tab (no new tab needed yet — only one case study exists).
-4. **Experience** *(partially done 2026-07-11)* — `#resume` 탭의 "경력" job 불릿을 문제→행동→임팩트 순서로 재구성 완료(모든 회사, 7곳). 날짜/수치/태그/회사명은 전혀 변경하지 않음. `#cv`(경력기술서) 탭의 회사별 상세 story 카드는 아직 미착수 — 다음 후보.
+4. **Experience** *(done 2026-07-11)* — `#resume` 탭의 "경력" job 불릿(7개사) + `#cv` 탭의 회사별 story 카드(담당 업무/기여 포인트, 5개사) 모두 문제→행동→임팩트 순서로 재구성 완료. 날짜/수치/태그/회사명은 전혀 변경하지 않음. 라벨 구조(담당직무/기술스택/담당 업무/기여 포인트)는 그대로 유지.
 5. **How I Build** *(future)* — new section, not built this round.
 6. **AI Product Lab** *(decided excluded — still too early)* — user confirmed (2026-07-11) the initiative is at too early a stage to represent on the site. Do not build this section until the user says otherwise.
 7. **Writing / Build Log** *(future)* — no source content currently exists for this.
-8. **Resume / CV** *(future, light touch only)* — `#resume`/`#cv` content itself is unchanged this round; only the shared hero above them changes.
+8. **Resume / CV** *(done for Experience content 2026-07-11)* — 위 4번 참고. 아직 손대지 않은 것: `기술과 실행 범위`(skill panels), `일하는 방식`(pillars).
 
 ## 4. Content migration plan (this iteration only)
 
