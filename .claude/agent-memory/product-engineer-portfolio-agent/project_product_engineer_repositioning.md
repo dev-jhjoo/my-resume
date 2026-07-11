@@ -34,12 +34,17 @@ metadata:
 - 두 곳 다 날짜·수치·태그·회사명은 전혀 건드리지 않음. 새 사실은 추가하지 않았고, 같은 문서 내 이미 있던 사실(예: 케이피모바일의 기존 SQL 기반 TPS 제어/동기식 Socket 통신)만 문제 맥락으로 앞으로 끌어옴.
 - 에이피엠멤버스의 "기여 포인트"(가입자 1.7만 명, 상품권 판매 60억 원 등 수치)는 이미 임팩트 중심이라 내용 변경 없이 그대로 둠 — 순서/라벨도 안 건드림.
 
-**기술과 실행 범위(skill panels) 재구성 완료 (2026-07-11, 아직 미커밋)**
-`#resume` 탭 4개 스킬 패널을 기술 카테고리 그룹핑(Backend & Integration / Data & Automation / Operations & Resilience / Infra & Delivery)에서 역량 그룹핑(Product Building / Data & AI-assisted Development / Operational Resilience / Cloud & Delivery)으로 재구성. 각 패널의 태그(기술 목록)는 완전히 동일 — 새 기술 추가/삭제 없음, 헤더와 설명 문장만 "이 기술로 무엇을 하는지"에서 "이 역량으로 제품에 어떤 결과를 만드는지"로 재작성. 매핑은 `docs/product-engineer-rebranding-plan.md` §9 참고.
+**기술과 실행 범위(skill panels) 재구성 완료 (2026-07-11)**
+`#resume` 탭 4개 스킬 패널을 기술 카테고리 그룹핑(Backend & Integration / Data & Automation / Operations & Resilience / Infra & Delivery)에서 역량 그룹핑(Product Building / Data & AI-assisted Development / Operational Resilience / Cloud & Delivery)으로 재구성. 각 패널의 태그(기술 목록)는 완전히 동일 — 새 기술 추가/삭제 없음, 헤더와 설명 문장만 "이 기술로 무엇을 하는지"에서 "이 역량으로 제품에 어떤 결과를 만드는지"로 재작성. 매핑은 `docs/product-engineer-rebranding-plan.md` §9 참고. 커밋 `b35fc43`.
+
+**일하는 방식(pillars) 문구 다듬기 완료 (2026-07-11, 아직 미커밋)**
+3개 pillar 헤더/구조는 유지, 문구만 다듬음: 1번 "작동 가능한 경로를 만듭니다" → "작동하는 제품을 먼저 만듭니다"(시스템→제품 언어). 2번 헤더에 "AI" 추가("데이터와 AI로 워크플로를 연결합니다"), "AI로 정리하고" 문구는 Morning Report Alpha의 실제 Gemini Structured Output 활용 사실에 근거한 일반화(새 사실 아님). 3번 "실제 운영에서 흔들리지 않도록"으로 §9 Operational Resilience 패널과 톤 통일. 상세는 `docs/product-engineer-rebranding-plan.md` §10.
+
+**How I Build 섹션: 사용자가 명시적으로 보류 요청 (2026-07-11).** "how i build는 아직 진행하지 말자"라고 직접 말함 — 별도의 명시적 지시가 있을 때까지 착수하지 말 것. 로드맵에는 남아있지만 우선순위 낮음으로 취급.
 
 **아직 손대지 않은 영역**
-- 일하는 방식(pillars) — 전부 미변경.
-- Featured Products 그리드, How I Build, Writing/Build Log — 신규 섹션 전부 미착수.
+- Featured Products 그리드, Writing/Build Log — 신규 섹션 전부 미착수 (Featured Products는 §2 결정에 따라 콘텐츠 부족으로 보류, Writing/Build Log는 소스 콘텐츠 없음).
+- How I Build — 위 참고, 사용자 보류 요청.
 
 **Why**: 사용자가 이번 요청에서 범위를 Hero + Case Study 1개로 명시적으로 제한했고, 사실 아닌 성과/지표를 절대 만들지 말라고 강조함. [[feedback-analysis-before-edit-and-visible-todos]] 참고. Hero CTA 제거는 순수 UX 취향 결정(사실관계와 무관).
 

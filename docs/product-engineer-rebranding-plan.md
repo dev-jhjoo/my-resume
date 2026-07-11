@@ -39,7 +39,7 @@ Target (phased — not all built this iteration):
 5. **How I Build** *(future)* — new section, not built this round.
 6. **AI Product Lab** *(decided excluded — still too early)* — user confirmed (2026-07-11) the initiative is at too early a stage to represent on the site. Do not build this section until the user says otherwise.
 7. **Writing / Build Log** *(future)* — no source content currently exists for this.
-8. **Resume / CV** *(done for Experience content 2026-07-11)* — 위 4번 참고. `기술과 실행 범위`(skill panels)도 2026-07-11에 재구성 완료(아래 §9). 아직 손대지 않은 것: `일하는 방식`(pillars).
+8. **Resume / CV** *(done for Experience content 2026-07-11)* — 위 4번 참고. `기술과 실행 범위`(skill panels)도 2026-07-11에 재구성 완료(아래 §9), `일하는 방식`(pillars) 문구도 2026-07-11에 다듬음(아래 §10). **How I Build 신규 섹션은 사용자가 명시적으로 보류 요청 — 별도 지시 전까지 착수하지 말 것.**
 
 ## 9. 기술과 실행 범위(skill panels) 재구성 — 완료 (2026-07-11)
 
@@ -53,6 +53,15 @@ Target (phased — not all built this iteration):
 | Infra & Delivery | **Cloud & Delivery** | AWS, Docker, ECR, Jenkins, Cloudflare |
 
 각 패널의 태그(기술 목록)는 완전히 동일 — 새로운 기술을 추가하거나 제거하지 않음. 설명(`<p>`) 문장만 "이 기술로 무엇을 하는지"에서 "이 역량으로 제품에 어떤 결과를 만드는지"로 재작성.
+
+## 10. 일하는 방식(pillars) 문구 다듬기 — 완료 (2026-07-11)
+
+기존 3개 pillar는 이미 Product Engineer 톤에 가까워 헤더/구조는 그대로 유지하고 문구만 다듬음:
+- 1번("문제를 기능보다 먼저 정의합니다"): "작동 가능한 경로를 만듭니다" → "작동하는 제품을 먼저 만듭니다" — 시스템이 아닌 제품 언어로.
+- 2번(헤더 변경: "데이터와 워크플로를 연결합니다" → "데이터와 AI로 워크플로를 연결합니다"): "AI로 정리하고"를 추가해 이 저장소에 이미 있는 사실(Morning Report Alpha의 Gemini Structured Output 활용)에 근거한 일반화. 새로운 사실 주장 아님.
+- 3번("빠르게 만들되 운영 가능하게 만듭니다"): "실제 운영에서 흔들리지 않도록"으로 표현을 §9의 Operational Resilience 패널 문구와 맞춤(사이트 전체 톤 일관성).
+
+**How I Build 섹션은 사용자가 이번에 명시적으로 보류 요청 — 별도 지시 있을 때까지 시작하지 말 것.**
 
 ## 4. Content migration plan (this iteration only)
 
