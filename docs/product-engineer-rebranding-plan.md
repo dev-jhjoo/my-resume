@@ -39,7 +39,20 @@ Target (phased — not all built this iteration):
 5. **How I Build** *(future)* — new section, not built this round.
 6. **AI Product Lab** *(decided excluded — still too early)* — user confirmed (2026-07-11) the initiative is at too early a stage to represent on the site. Do not build this section until the user says otherwise.
 7. **Writing / Build Log** *(future)* — no source content currently exists for this.
-8. **Resume / CV** *(done for Experience content 2026-07-11)* — 위 4번 참고. 아직 손대지 않은 것: `기술과 실행 범위`(skill panels), `일하는 방식`(pillars).
+8. **Resume / CV** *(done for Experience content 2026-07-11)* — 위 4번 참고. `기술과 실행 범위`(skill panels)도 2026-07-11에 재구성 완료(아래 §9). 아직 손대지 않은 것: `일하는 방식`(pillars).
+
+## 9. 기술과 실행 범위(skill panels) 재구성 — 완료 (2026-07-11)
+
+기존 4개 패널(Backend & Integration / Data & Automation / Operations & Resilience / Infra & Delivery)은 기술 카테고리 기준 그룹핑이었음(감사 §4에서 지적). 다음과 같이 역량/제품 결과물 기준으로 재구성:
+
+| 이전 헤더 | 새 헤더 | 태그(변경 없음) |
+|---|---|---|
+| Backend & Integration | **Product Building** | Java, TypeScript, Spring Boot, Node.js, Netty |
+| Data & Automation | **Data & AI-assisted Development** | MySQL, PostgreSQL, Kafka, Tableau, GitHub Actions, Gemini API |
+| Operations & Resilience | **Operational Resilience** | Retry / Backoff, Rate Limit, Datadog, ELK, Prometheus · Grafana |
+| Infra & Delivery | **Cloud & Delivery** | AWS, Docker, ECR, Jenkins, Cloudflare |
+
+각 패널의 태그(기술 목록)는 완전히 동일 — 새로운 기술을 추가하거나 제거하지 않음. 설명(`<p>`) 문장만 "이 기술로 무엇을 하는지"에서 "이 역량으로 제품에 어떤 결과를 만드는지"로 재작성.
 
 ## 4. Content migration plan (this iteration only)
 
