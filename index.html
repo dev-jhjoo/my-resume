@@ -407,10 +407,10 @@
         padding-top: 0;
       }
       .job__head {
-        display: flex;
-        justify-content: space-between;
-        gap: 18px;
-        align-items: baseline;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2px 18px;
+        align-items: center;
       }
       .job__co {
         font-size: 18px;
@@ -418,15 +418,17 @@
         letter-spacing: -0.02em;
       }
       .job__kind {
-        margin-left: 8px;
         color: var(--muted);
         font-size: 13px;
         font-weight: 500;
       }
+      .job__logo {
+        justify-self: end;
+      }
       .job__date {
-        flex: 0 0 auto;
         color: var(--muted);
         font-size: 13px;
+        text-align: right;
       }
       .job__role {
         margin: 5px 0 14px;
@@ -595,6 +597,18 @@
         margin-top: 0;
       }
 
+      .job__logo {
+        height: 27px;
+        width: auto;
+        max-width: 108px;
+        object-fit: contain;
+        opacity: 0.5;
+        filter: grayscale(1);
+      }
+      [data-theme="dark"] .job__logo {
+        filter: grayscale(1) invert(1);
+      }
+
       .footer {
         padding: 36px 0 42px;
         color: var(--muted);
@@ -638,15 +652,8 @@
         .skills-layout {
           grid-template-columns: 1fr;
         }
-        .job__head {
-          display: block;
-        }
         .job__date {
-          margin-top: 4px;
-        }
-        .job__kind {
-          display: block;
-          margin: 4px 0 0;
+          margin-top: 0;
         }
       }
       @media print {
@@ -899,11 +906,9 @@
 
             <article class="job">
               <div class="job__head">
-                <div class="job__co">
-                  (주)케이피모바일<span class="job__kind"
-                    >문자 중계 · 일 250~300만 메시지 유통</span
-                  >
-                </div>
+                <div class="job__co">(주)케이피모바일</div>
+                <img class="job__logo" src="assets/kp-logo.png" alt="" />
+                <span class="job__kind">문자 중계 · 일 250~300만 메시지 유통</span>
                 <div class="job__date">2024.12 – 현재</div>
               </div>
               <p class="job__role">연구개발팀 과장</p>
@@ -943,11 +948,9 @@
 
             <article class="job">
               <div class="job__head">
-                <div class="job__co">
-                  커넥틴(주)<span class="job__kind"
-                    >일용직 구인구직 플랫폼</span
-                  >
-                </div>
+                <div class="job__co">커넥틴(주)</div>
+                <img class="job__logo" src="assets/connectin-logo.png" alt="" />
+                <span class="job__kind">일용직 구인구직 플랫폼</span>
                 <div class="job__date">2023.08 – 2024.07 · 1년</div>
               </div>
               <p class="job__role">개발팀 팀장 · 백엔드 리드</p>
@@ -978,11 +981,9 @@
 
             <article class="job">
               <div class="job__head">
-                <div class="job__co">
-                  카닥<span class="job__kind"
-                    >차량 애프터 서비스 비교견적 플랫폼</span
-                  >
-                </div>
+                <div class="job__co">카닥</div>
+                <img class="job__logo" src="assets/cardoc-logo.png" alt="" />
+                <span class="job__kind">차량 애프터 서비스 비교견적 플랫폼</span>
                 <div class="job__date">2023.01 – 2023.03</div>
               </div>
               <p class="job__role">서버 개발 및 운영</p>
@@ -993,11 +994,9 @@
 
             <article class="job">
               <div class="job__head">
-                <div class="job__co">
-                  (주)에이피엠멤버스<span class="job__kind"
-                    >동대문 전자상거래 플랫폼</span
-                  >
-                </div>
+                <div class="job__co">(주)에이피엠멤버스</div>
+                <img class="job__logo" src="assets/apmmembers-logo.png" alt="" />
+                <span class="job__kind">동대문 전자상거래 플랫폼</span>
                 <div class="job__date">2021.02 – 2022.12 · 1년 10개월</div>
               </div>
               <p class="job__role">백엔드 리드</p>
@@ -1023,9 +1022,9 @@
 
             <article class="job">
               <div class="job__head">
-                <div class="job__co">
-                  에어프레미아(주)<span class="job__kind">국내 신규 LCC</span>
-                </div>
+                <div class="job__co">에어프레미아(주)</div>
+                <img class="job__logo" src="assets/airpremia-logo.png" alt="" />
+                <span class="job__kind">국내 신규 LCC</span>
                 <div class="job__date">2019.12 – 2021.01 · 1년 2개월</div>
               </div>
               <p class="job__role">I&amp;S 개발팀 · 결제 시스템 개발</p>
@@ -1047,9 +1046,9 @@
 
             <article class="job">
               <div class="job__head">
-                <div class="job__co">
-                  엔에치엔케이씨피<span class="job__kind">국내 PG</span>
-                </div>
+                <div class="job__co">엔에치엔케이씨피</div>
+                <img class="job__logo" src="assets/nhnkcp-logo.png" alt="" />
+                <span class="job__kind">국내 PG</span>
                 <div class="job__date">2019.04 – 2019.08</div>
               </div>
               <p class="job__role">서버 개발 및 운영</p>
@@ -1060,9 +1059,9 @@
 
             <article class="job">
               <div class="job__head">
-                <div class="job__co">
-                  (주)엑심베이<span class="job__kind">글로벌 PG</span>
-                </div>
+                <div class="job__co">(주)엑심베이</div>
+                <img class="job__logo" src="assets/eximbay-logo.png" alt="" />
+                <span class="job__kind">글로벌 PG</span>
                 <div class="job__date">2016.09 – 2019.04 · 2년 7개월</div>
               </div>
               <p class="job__role">서버 개발 및 운영</p>
