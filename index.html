@@ -322,7 +322,7 @@
       .pillar p {
         margin: 0;
         color: var(--ink-soft);
-        font-size: 13.5px;
+        font-size: 15px;
       }
 
       .case-grid {
@@ -346,7 +346,7 @@
       .case > p {
         margin: 0;
         color: var(--ink-soft);
-        font-size: 14px;
+        font-size: 15px;
       }
       .case-list {
         margin: 16px 0;
@@ -358,7 +358,7 @@
         margin-top: 8px;
         padding-left: 14px;
         color: var(--ink-soft);
-        font-size: 13.5px;
+        font-size: 15px;
       }
       .case-list li::before {
         content: "";
@@ -443,7 +443,7 @@
       .job li {
         margin-top: 8px;
         color: var(--ink-soft);
-        font-size: 14px;
+        font-size: 15px;
       }
       .tags {
         display: flex;
@@ -475,7 +475,7 @@
       .skill-panel p {
         margin: 0;
         color: var(--ink-soft);
-        font-size: 13.5px;
+        font-size: 15px;
       }
       .skill-panel .tags {
         margin-top: 12px;
@@ -704,6 +704,23 @@
           color: var(--muted);
         }
       }
+      .cert-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        table-layout: fixed;
+      }
+      .cert-table th,
+      .cert-table td {
+        width: 33.33%;
+        padding: 8px 10px;
+        text-align: left;
+      }
+      .cert-table th {
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 12px;
+      }
     </style>
   </head>
   <body>
@@ -916,28 +933,19 @@
               <p class="job__role">연구개발팀 과장</p>
               <ul>
                 <li>
-                  DB 중심 메시지 처리 구조가 처리량 확장에 한계를 보이는
-                  상황에서, <strong>Kafka 기반 이벤트 스트림</strong>으로
-                  전환하는 차세대 프로젝트에 참여하고 EOS·Partition·Consumer
-                  Group·Offset·재처리 전략을 정리한 사내 세미나를 주도해 팀의
-                  설계 이해도를 높임.
+                  신규 프로토콜을 위한 고객사 에이전트 개발
+                  <ul>
+                    <li>Rate limiting을 위해 Bucket4j 적용하여 TPS 제어</li>
+                    <li>
+                      비동기·이벤트 기반의 Netty 프레임워크 도입으로 안전성과
+                      유지보수성 확보
+                    </li>
+                  </ul>
                 </li>
+                <li>C++ 레거시 코드 Java로 포팅</li>
                 <li>
-                  기존 SQL 기반 TPS 제어와 동기식 Socket 통신 방식의 한계를
-                  개선하기 위해, 메시지 타입별
-                  <strong>DB → Queue 독립 파이프라인</strong>과 우선순위 큐를
-                  도입하고 Bucket4j 기반 TPS 제어·Netty 비동기 이벤트 드리븐
-                  통신으로 전환해 고객사 Agent 구조 개선.
-                </li>
-                <li>
-                  운영 서버 장애로 모놀리식 백오피스가 중단된 상황에서 정상 DB만
-                  참조하는 Emergency Backoffice를 30분 내 구현해 최소 운영 기능
-                  제공.
-                </li>
-                <li>
-                  Windows Server EOS로 운영 서버 이관이 불가피한 상황에서, C++
-                  레거시를 Java로 점진 포팅하며 약 60만 개 MMS 첨부 파일을
-                  안정적으로 이전.
+                  Kafka 기반 차세대 메시지 처리 구조 전환 프로젝트 참여 및 팀 내
+                  세미나 주도
                 </li>
               </ul>
               <div class="tags">
@@ -958,18 +966,16 @@
               <p class="job__role">개발팀 팀장 · 백엔드 리드</p>
               <ul>
                 <li>
-                  주니어 2명으로 구성된 개발팀을 리딩하며 일정·요구사항·배포
-                  전반을 관리하고, 현업 요구를 API와 운영 프로세스로 구체화.
+                  개발팀 리딩 (주니어 2명), 일정·요구사항·배포 관리 및 현업
+                  요구를 API로 구체화
                 </li>
                 <li>
-                  개인정보 보호와 인프라 접근 통제를 강화하기 위해 AWS 3-tier
-                  인프라를 설계·구축. Public/Private 서브넷을 분리하고 RDS를
-                  격리했으며, S3 Presigned URL로 이미지 업로드 보안을 확보.
+                  AWS 3-tier 인프라 설계·구축 (Public/Private 서브넷 분리, RDS
+                  격리, S3 Presigned URL)
                 </li>
                 <li>
-                  배포 신뢰성과 사용자 인증 안전성을 높이기 위해 GitHub Actions
-                  기반 Docker 빌드·ECR 배포 CI/CD를 구축하고, OAuth 소셜
-                  로그인·PASS 본인인증·Firebase 푸시 알림을 구현.
+                  GitHub Actions CI/CD 구축, OAuth 소셜 로그인·PASS
+                  본인인증·Firebase 푸시 알림 구현
                 </li>
               </ul>
               <div class="tags">
@@ -993,7 +999,7 @@
               <p class="job__role">서버 개발 및 운영</p>
               <ul>
                 <li>
-                  레거시 쿠폰 시스템의 구조를 분석하고 개선 방향을 도출해 반영.
+                  레거시 쿠폰 시스템의 구조를 분석하고 개선 방향을 도출해 반영
                 </li>
               </ul>
             </article>
@@ -1012,13 +1018,12 @@
               <p class="job__role">백엔드 리드</p>
               <ul>
                 <li>
-                  운영 부서와 협업해 정산·결제 요구사항을 기능으로 구체화하고,
                   상품권·쿠폰·결제 게이트웨이·가맹점 정산 서버를 MSA 기반으로
-                  설계·개발.
+                  설계 및 개발
                 </li>
                 <li>
                   앱 런칭 후 가입자 약 1.7만 명, 가맹점 약 1천 개, 상품권 누적
-                  판매 60억 원·정산 50억 원 규모 운영을 지원.
+                  판매 60억 원·정산 50억 원 규모 운영을 지원
                 </li>
               </ul>
               <div class="tags">
@@ -1088,7 +1093,7 @@
             </article>
           </section>
 
-          <section>
+          <!-- <section>
             <div class="section-head"><h2>기술과 실행 범위</h2></div>
             <div class="skills-layout">
               <article class="skill-panel">
@@ -1153,6 +1158,76 @@
                 </div>
               </article>
             </div>
+          </section> -->
+
+          <section>
+            <div class="section-head"><h2>학력</h2></div>
+            <table class="cert-table">
+              <thead>
+                <tr>
+                  <th>학교명</th>
+                  <th>교육기간</th>
+                  <th>학과명·학점</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>순천향대학교</td>
+                  <td>2009.03 – 2016.02</td>
+                  <td>컴퓨터 소프트웨어 공학과 · 3.0/4.5</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <div class="section-head"><h2>교육</h2></div>
+            <table class="cert-table">
+              <thead>
+                <tr>
+                  <th>교육명</th>
+                  <th>교육기간</th>
+                  <th>교육처</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>태블로 신병훈련소 25기</td>
+                  <td>2024.10 – 2024.11</td>
+                  <td>세일즈포스</td>
+                </tr>
+                <tr>
+                  <td>데이터분석 데브코스 4기</td>
+                  <td>2024.08 – 2024.11</td>
+                  <td>프로그래머스</td>
+                </tr>
+                <tr>
+                  <td>Mashup Java 웹 개발 과정</td>
+                  <td>2015.08 – 2016.01</td>
+                  <td>쌍용교육센터</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
+            <div class="section-head"><h2>자격증</h2></div>
+            <table class="cert-table">
+              <thead>
+                <tr>
+                  <th>자격증명</th>
+                  <th>취득일</th>
+                  <th>발급처</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SQLD</td>
+                  <td>2024.09.20</td>
+                  <td>한국데이터산업진흥원</td>
+                </tr>
+              </tbody>
+            </table>
           </section>
         </div>
       </section>
