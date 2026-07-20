@@ -16,4 +16,4 @@ metadata:
 
 개인 프로젝트: Morning Report Alpha — 뉴스/시세 수집 + Gemini LLM 분석 + 대시보드/텔레그램 알림 자동화 파이프라인 (investing.twojh.com).
 
-**현재 커리어 방향**: 최근 FDE(Forward Deployed Engineer) 포지션에 관심이 생겨, 이력서/경력기술서를 해당 방향으로 리포지셔닝 중. 실제 client-facing FDE 경력은 없고, 사내 운영팀 대상 문제 해결·자동화 경험을 근거로 프레이밍하는 중. [[project-fde-repositioning]] 참고.
+**현재 커리어 방향**: FDE(Forward Deployed Engineer) 탐색을 거쳐, 2026-07-20 기준 "Ax Engineer" — 사용자 본인 정의로 "기업 내 AI를 활용해 반복업무 혹은 병목점을 해결하는 AI Transformation Engineer" — 포지션으로 더 구체화. 일반 AI/LLM 제품 엔지니어나 AI 에이전트 전문 엔지니어와는 결이 다르며 사내 프로세스 혁신에 방점. 실제 client-facing 경력은 없고, 사내 운영팀 대상 문제 해결·자동화 경험을 근거로 프레이밍하는 중. [[project-fde-repositioning]], [[project-ax-engineer-repositioning]] 참고.

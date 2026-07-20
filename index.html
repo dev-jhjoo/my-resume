@@ -3,28 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>주지훈 | Backend Engineer · AI로 문제를 제품으로 만듭니다</title>
+    <title>주지훈 | Ax Engineer · AI로 문제를 제품으로 만듭니다</title>
     <meta
       name="description"
-      content="백엔드와 운영 경험을 기반으로 문제를 정의하고, AI로 빠르게 검증해 실제 사용 가능한 제품으로 만드는 Backend Engineer 주지훈의 이력서와 포트폴리오."
+      content="백엔드와 운영 경험을 기반으로 문제를 정의하고, AI로 빠르게 검증해 실제 사용 가능한 제품으로 만드는 Ax Engineer 주지훈의 이력서와 포트폴리오."
     />
     <meta property="og:type" content="profile" />
     <meta
       property="og:title"
-      content="주지훈 | Backend Engineer · AI로 문제를 제품으로 만듭니다"
+      content="주지훈 | Ax Engineer · AI로 문제를 제품으로 만듭니다"
     />
     <meta
       property="og:description"
-      content="백엔드와 운영 경험을 기반으로 문제를 정의하고, AI로 빠르게 검증해 실제 사용 가능한 제품으로 만드는 Backend Engineer 주지훈의 이력서와 포트폴리오."
+      content="백엔드와 운영 경험을 기반으로 문제를 정의하고, AI로 빠르게 검증해 실제 사용 가능한 제품으로 만드는 Ax Engineer 주지훈의 이력서와 포트폴리오."
     />
     <meta name="twitter:card" content="summary" />
     <meta
       name="twitter:title"
-      content="주지훈 | Backend Engineer · AI로 문제를 제품으로 만듭니다"
+      content="주지훈 | Ax Engineer · AI로 문제를 제품으로 만듭니다"
     />
     <meta
       name="twitter:description"
-      content="백엔드와 운영 경험을 기반으로 문제를 정의하고, AI로 빠르게 검증해 실제 사용 가능한 제품으로 만드는 Backend Engineer 주지훈의 이력서와 포트폴리오."
+      content="백엔드와 운영 경험을 기반으로 문제를 정의하고, AI로 빠르게 검증해 실제 사용 가능한 제품으로 만드는 Ax Engineer 주지훈의 이력서와 포트폴리오."
     />
     <link
       rel="icon"
@@ -726,7 +726,7 @@
   <body>
     <header class="topbar">
       <div class="topbar__inner">
-        <a class="brand" href="#top">주지훈 <span>Backend Engineer</span></a>
+        <a class="brand" href="#top">주지훈 <span>Ax Engineer</span></a>
         <div class="tabs" role="tablist" aria-label="문서 보기 전환">
           <button
             class="tab is-active"
@@ -774,7 +774,7 @@
     <main id="top">
       <div class="wrap">
         <section class="hero">
-          <h1>주지훈<span>Backend Engineer · 9년 차 백엔드 엔지니어</span></h1>
+          <h1>주지훈<span>Ax Engineer · 9년 차 백엔드 엔지니어</span></h1>
           <p class="tagline">
             AI를 활용해 실제 문제를 빠르게 제품으로 만듭니다
           </p>
@@ -942,7 +942,30 @@
                     </li>
                   </ul>
                 </li>
-                <li>C++ 레거시 코드 Java로 포팅</li>
+                <li>
+                  C++ 레거시 코드(스파게티 구조) Java/Spring Boot 포팅
+                  <ul>
+                    <li>
+                      Claude Code·ChatGPT Codex 두 AI로 교차 분석 후 사람이
+                      직접 검증하는 방식으로 신뢰성 확보
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  운영 서버 물리 장애로 레거시 Backoffice 접속이 막힌 상황에서,
+                  AI로 Emergency Backoffice(고객 정보·실시간 물량 조회) 긴급
+                  빌드·배포
+                  <ul>
+                    <li>
+                      본 서버 복구(OS 재설치·DB 복구)와 병행 진행해 운영팀 고객
+                      응대·선 조치 공백 최소화
+                    </li>
+                    <li>
+                      기존 Backoffice는 DB 커넥션 예외 처리 부재로 1개 DB
+                      장애가 전체 서비스로 전파되는 구조였음을 진단
+                    </li>
+                  </ul>
+                </li>
                 <li>
                   Kafka 기반 차세대 메시지 처리 구조 전환 프로젝트 참여 및 팀 내
                   세미나 주도
@@ -952,7 +975,8 @@
                 <span class="tag">Java · Spring Boot</span
                 ><span class="tag">Netty</span><span class="tag">Kafka</span
                 ><span class="tag">MySQL / PostgreSQL / Oracle</span
-                ><span class="tag">C++ (MFC)</span>
+                ><span class="tag">C++ (MFC)</span
+                ><span class="tag">Claude Code · ChatGPT Codex</span>
               </div>
             </article>
 
@@ -1282,6 +1306,27 @@
               </ul>
               <span class="story__label">기여 포인트</span>
               <ul class="case-list">
+                <li>
+                  단일 파일에 모든 기능이 뒤섞여 있고 주석과 실제 동작이
+                  일치하지 않는 스파게티 구조의 C++ 레거시를 사람이 처음부터
+                  분석하면 상당한 시간이 소요되는 상황에서, Claude Code와
+                  ChatGPT Codex 두 AI로 각각 독립 분석을 수행해 결과의
+                  일치·불일치 지점을 비교하고, 이를 근거로 직접 코드 검증과
+                  기능 리스팅을 진행해 신뢰할 수 있는 포팅 범위를 확정. 기능
+                  단위로 패키징해 Java/Spring Boot로 포팅한 결과, AI 없이
+                  진행했다면 6개월 이상 소요될 작업을 약 2개월로 단축
+                </li>
+                <li>
+                  운영 서버의 물리적 디스크 장애로 재기동이 불가능해 레거시
+                  모놀리식 Backoffice(Java/JSP) 접속이 막히고 고객 응대 VOC가
+                  급증하는 상황에서, AI를 활용해 고객 정보·실시간 물량 조회
+                  기능만 담은 Emergency Backoffice를 긴급 빌드·배포. 본 서버의
+                  OS 재설치·DB·애플리케이션 복구와 병행 진행해, 전체 서비스가
+                  정상화되기 전에도 운영팀이 고객 응대와 선 조치를 이어갈 수
+                  있도록 지원. 이 과정에서 기존 Backoffice가 여러 DB 커넥션에
+                  대한 예외 처리 없이 설계되어 있어 DB 1개 연결 실패가 전체
+                  서비스 장애로 전파되는 구조적 문제도 함께 진단
+                </li>
                 <li>
                   Kafka 도입 프로젝트의 팀 내 공통 이해도가 부족한 상황에서,
                   Producer/Consumer, EOS, Partition, Consumer Group, Offset,
@@ -1688,7 +1733,7 @@
     </main>
 
     <footer class="footer">
-      © 2026 주지훈 · Backend Engineer · AI로 문제를 제품으로 만듭니다
+      © 2026 주지훈 · Ax Engineer · AI로 문제를 제품으로 만듭니다
     </footer>
 
     <script>
