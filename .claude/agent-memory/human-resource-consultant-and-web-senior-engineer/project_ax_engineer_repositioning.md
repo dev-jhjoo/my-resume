@@ -51,4 +51,17 @@ metadata:
 - `<title>`, meta description/og/twitter, footer(4~7곳)에 남아있던 구 문구("AI로 문제를 제품으로 만듭니다" / "실제 사용 가능한 제품으로 만드는")도 전부 동일 톤으로 통일: title류는 "AI로 반복업무와 병목을 없앱니다", description류는 "현업이 실제로 멈추는 지점을 찾아내고, AI로 반복업무와 병목을 없애는 Ax Engineer"로 교체.
 - grep으로 "제품으로 만듭니다" 잔존 문구 없음을 확인함 — 페이지 전체 톤이 이제 일관됨.
 
-**How to apply**: 다음 대화에서 (1) 위 포트폴리오 편입 의견(Emergency Backoffice는 포트폴리오 비권장, Morning Report Alpha 유지 권장)에 대한 사용자의 최종 결정 확인, (2) case-grid 하이라이트 섹션 부활 여부 결정 시 세부사항 일반화 수준에 대해 재차 합의, (3) 다른 5개 회사(커넥틴, 카닥, 에이피엠멤버스, 에어프레미아, 엔에치엔케이씨피, 엑심베이)에는 AI 활용 이력이 없으므로 억지로 끼워넣지 말 것, (4) 주석 처리된 스킬 섹션 재노출 여부는 여전히 미결. 지금까지 잘 작동한 흐름(상세 사실 확보 → 문장 초안 제시 → 사용자가 지정한 것만 확정 반영)을 계속 유지할 것.
+**세 번째 AI 활용 사례 — Redmine Local RAG PoC (2026-07-20)**: 사내 PMS(Redmine, ~10년 치 이력, 정형화 안 된 기록이라 검색 어려움)를 벡터 검색으로 찾을 수 있게 해보려던 개인 PoC. Emergency Backoffice·C++ 포팅과 달리 **프로덕션 미배포·개인 실험으로 종료**된 사례라는 점이 중요한 차이.
+- 스택: Redmine Issues CSV 수동 export → JSON 변환 → 임베딩(`nomic-embed-text`, Ollama) → Qdrant 벡터 저장 → 로컬 LLM(`qwen2.5:3b`, Ollama) 질의응답, Docker Compose로 전체 구성. GitHub: https://github.com/dev-jhjoo/redmine-local-rag-poc (2026-05-17~18, 하루짜리 PoC)
+- 로컬(Ollama) 선택 이유: 비공개 사내 데이터를 외부 AI API로 보내지 않기 위해 — Ax Engineer로서 데이터 보안을 고려한 판단 근거로 유효
+- 한계(사용자 확인): (1) 이슈 제목만 임베딩해서 검색 정밀도 한계 뚜렷, (2) 조직적으로 로컬 LLM 상시 운영할 하드웨어 리소스 여력이 없어 도입 무산
+- README 예시 질의문에 사내 고유명사("KShot", "3010 collector")가 노출되어 있었는데, 앞서 C++ 파일명 제외 요청과 같은 맥락으로 판단해 이력서/Notion 초안 모두에서 일반화된 예시로 대체함(자체 판단)
+
+**반영 상태 (2026-07-20)**: 
+- Notion 포스팅용 markdown 초안 작성 완료: `/Users/jeehoon/My/my-resume/docs/redmine-local-rag-poc-notion-draft.md` (수정 없이 확정)
+- index.html 포트폴리오 탭에 2번째 카드로 반영 완료 (Morning Report Alpha와 동일 포맷: Problem/Hypothesis/MVP/My Role/Key Decisions/Current Result/Learnings/Next/Technology). `case__meta`를 "Product Case Study · PoC (미배포)"로 표기해 라이브 프로젝트와 구분. GitHub 링크만 제공(라이브 데모 없음), 스크린샷 없음(CLI 도구)
+- 포트폴리오 탭 상단 소개 문구도 "운영하는" → "기획·개발한 사이드 프로젝트와 기술 검증(PoC)을"로 함께 수정해 PoC 포함을 반영
+
+**포트폴리오 구성 최종 상태**: Morning Report Alpha(제품 오너십 증거, Live) + Redmine Local RAG PoC(Ax Engineer 정의에 가장 근접한 소재지만 미배포, PoC) 2개 카드 체제.
+
+**How to apply**: 다음 대화에서 (1) 아직 미결인 case-grid 하이라이트 섹션 부활 여부, (2) 주석 처리된 스킬 섹션 재노출 여부는 사용자가 "패스"하기로 했으므로 재요청 전까지 먼저 꺼내지 말 것, (3) 다른 5개 회사(커넥틴, 카닥, 에이피엠멤버스, 에어프레미아, 엔에치엔케이씨피, 엑심베이)에는 AI 활용 이력이 없으므로 억지로 끼워넣지 말 것. 이번 대화 전반에 걸쳐 확립된 패턴 — GitHub/공개 자료로 먼저 조사 → 부족한 부분만 사용자에게 질문 → 초안 제시(민감 정보는 자체 판단으로 일반화) → 확정된 것만 반영 → 매 반영 후 커밋·푸시까지 이어가는 흐름 — 을 계속 따를 것.

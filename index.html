@@ -1558,9 +1558,9 @@
           <section class="cv-intro">
             <h2>포트폴리오</h2>
             <p>
-              직접 기획·개발·운영하는 사이드 프로젝트를 소개합니다. 문제
-              정의부터 가설, MVP, 주요 의사결정, 현재 결과와 배운 점까지 제품
-              관점에서 정리했습니다.
+              직접 기획·개발한 사이드 프로젝트와 기술 검증(PoC)을 소개합니다.
+              문제 정의부터 가설, MVP, 주요 의사결정, 현재 결과와 배운 점까지
+              제품 관점에서 정리했습니다.
             </p>
           </section>
 
@@ -1725,6 +1725,139 @@
                     ><span class="tag">GitHub Actions</span
                     ><span class="tag">Telegram Bot API</span
                     ><span class="tag">Cloudflare</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card">
+              <div class="portfolio-card__head">
+                <div>
+                  <div class="case__meta">Product Case Study · PoC (미배포)</div>
+                  <h3>Redmine Local RAG PoC</h3>
+                  <p>
+                    거의 10년 치 이력이 쌓여 있지만 정형화되지 않아 검색이
+                    어려운 사내 Redmine 이슈 아카이브를, 로컬 환경의 RAG로
+                    의미 기반 검색이 가능한지 검증해본 개인 PoC입니다.
+                  </p>
+                </div>
+                <div class="link-row">
+                  <a
+                    class="text-link"
+                    href="https://github.com/dev-jhjoo/redmine-local-rag-poc"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub ↗</a
+                  >
+                </div>
+              </div>
+
+              <div class="portfolio-card__body">
+                <div class="portfolio-block">
+                  <h4>Problem</h4>
+                  <p>
+                    사내 PMS로 사용 중인 Redmine에는 거의 10년 가까운 이력이
+                    쌓여 있어 사실상 유일하게 참고할 수 있는 기록
+                    아카이브였지만, 정형화된 형식이 아니라 그때그때 기록을
+                    남기기 위한 용도로 이슈가 발행되다 보니 키워드 검색만으로
+                    원하는 과거 이력을 찾기가 어려웠습니다.
+                  </p>
+                </div>
+
+                <div class="portfolio-block">
+                  <h4>Hypothesis</h4>
+                  <p>
+                    이슈를 벡터로 임베딩해 검색하면, 정확한 키워드를 몰라도
+                    의미가 비슷한 과거 이슈를 찾아낼 수 있을 것이라고
+                    가정했습니다.
+                  </p>
+                </div>
+
+                <div class="portfolio-block">
+                  <h4>MVP</h4>
+                  <ul class="case-list">
+                    <li>Redmine Issues를 CSV로 수동 Export 후 JSON 변환</li>
+                    <li>
+                      Ollama 기반 임베딩 모델(nomic-embed-text)로 이슈 제목을
+                      벡터화해 Qdrant에 저장
+                    </li>
+                    <li>
+                      Ollama 로컬 LLM(qwen2.5:3b)으로 자연어 질의에 응답하는
+                      CLI 구성
+                    </li>
+                    <li>
+                      Docker Compose로 Qdrant·Ollama 등 전체 스택을 로컬에서
+                      바로 실행 가능하도록 구성
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="portfolio-block">
+                  <h4>My Role</h4>
+                  <p>
+                    문제 정의부터 파이프라인 설계, 구현, 검증까지 하루 정도의
+                    시간을 들여 혼자 진행한 개인 PoC입니다.
+                  </p>
+                </div>
+
+                <div class="portfolio-block">
+                  <h4>Key Decisions</h4>
+                  <p>
+                    Redmine 이슈는 비공개 사내 데이터이기 때문에, 외부 AI
+                    API로 전송하지 않고 임베딩과 LLM 추론을 모두 로컬에서
+                    처리하는 구조를 전제로 설계했습니다.
+                  </p>
+                  <ul class="case-list">
+                    <li>
+                      임베딩·LLM 추론 모두 Ollama로 자체 호스팅해 데이터가
+                      외부로 나가지 않는 구조로 구성
+                    </li>
+                    <li>
+                      별도 클라우드 인프라 없이 Qdrant·Ollama를 Docker
+                      Compose로 묶어 로컬에서 바로 검증 가능하도록 구성
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="portfolio-block">
+                  <h4>Current Result</h4>
+                  <div class="case-result">
+                    키워드를 몰라도 의미 기반으로 관련 이슈를 찾아내는
+                    방향성은 확인했지만, 이슈 제목만 임베딩한 탓에 검색
+                    정밀도의 한계가 뚜렷했습니다. 상시 로컬 LLM을 운영할
+                    하드웨어 리소스를 사내에 투입할 여력도 없어, 프로덕션
+                    도입 없이 개인 PoC로 마무리했습니다.
+                  </div>
+                </div>
+
+                <div class="portfolio-block">
+                  <h4>Learnings</h4>
+                  <p>
+                    비공개 데이터를 다루는 AI 실험에서는 로컬 임베딩·로컬
+                    LLM 조합만으로도 외부 유출 없이 RAG 파이프라인을 구성할
+                    수 있다는 것을 확인했습니다. 동시에 검색 품질은 결국
+                    무엇을 임베딩하느냐에 달려 있어, 제목만으로는 한계가
+                    있고 본문까지 포함한 인덱싱이 필요하다는 것도
+                    배웠습니다.
+                  </p>
+                </div>
+
+                <div class="portfolio-block">
+                  <h4>Next</h4>
+                  <p>
+                    다시 진행한다면 이슈 본문까지 포함한 인덱싱, Redmine
+                    API 연동을 통한 자동 동기화, 사내 정식 도입을 위한
+                    리소스 확보 방안까지 검토해볼 계획입니다.
+                  </p>
+                </div>
+
+                <div class="portfolio-block">
+                  <h4>Technology</h4>
+                  <div class="tags">
+                    <span class="tag">Python</span
+                    ><span class="tag">Qdrant</span
+                    ><span class="tag">Ollama</span
+                    ><span class="tag">Docker Compose</span>
                   </div>
                 </div>
               </div>
